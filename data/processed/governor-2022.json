@@ -1,0 +1,2110 @@
+[
+  {
+    "fips": "36001",
+    "name": "Albany",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 62327
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 6708
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 40416
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 7129
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 385
+      }
+    ],
+    "blank": 795,
+    "void": 65
+  },
+  {
+    "fips": "36003",
+    "name": "Allegany",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 3613
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 255
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 10862
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1112
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 46
+      }
+    ],
+    "blank": 92,
+    "void": 2
+  },
+  {
+    "fips": "36005",
+    "name": "Bronx",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 148131
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 7433
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 41685
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 3263
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 227
+      }
+    ],
+    "blank": 2324,
+    "void": 339
+  },
+  {
+    "fips": "36007",
+    "name": "Broome",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 27272
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 2527
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 34542
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 3801
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 88
+      }
+    ],
+    "blank": 587,
+    "void": 36
+  },
+  {
+    "fips": "36009",
+    "name": "Cattaraugus",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 7291
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 504
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 16219
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2046
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 31
+      }
+    ],
+    "blank": 238,
+    "void": 21
+  },
+  {
+    "fips": "36011",
+    "name": "Cayuga",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 9505
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 670
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 14465
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2260
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 49
+      }
+    ],
+    "blank": 181,
+    "void": 4
+  },
+  {
+    "fips": "36013",
+    "name": "Chautauqua",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 14180
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 1057
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 24668
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 3600
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 56
+      }
+    ],
+    "blank": 237,
+    "void": 17
+  },
+  {
+    "fips": "36015",
+    "name": "Chemung",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 8998
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 476
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 16781
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1583
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 72
+      }
+    ],
+    "blank": 159,
+    "void": 0
+  },
+  {
+    "fips": "36017",
+    "name": "Chenango",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 4623
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 345
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 10911
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 960
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 34
+      }
+    ],
+    "blank": 77,
+    "void": 5
+  },
+  {
+    "fips": "36019",
+    "name": "Clinton",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 11124
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 770
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 14223
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1367
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 40
+      }
+    ],
+    "blank": 297,
+    "void": 11
+  },
+  {
+    "fips": "36021",
+    "name": "Columbia",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 14400
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 1679
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 11697
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1908
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 61
+      }
+    ],
+    "blank": 175,
+    "void": 11
+  },
+  {
+    "fips": "36023",
+    "name": "Cortland",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 6299
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 513
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 8349
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 945
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 43
+      }
+    ],
+    "blank": 129,
+    "void": 1
+  },
+  {
+    "fips": "36025",
+    "name": "Delaware",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 5869
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 621
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 11076
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1019
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 23
+      }
+    ],
+    "blank": 90,
+    "void": 0
+  },
+  {
+    "fips": "36027",
+    "name": "Dutchess",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 50967
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 4552
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 52803
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 6683
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 145
+      }
+    ],
+    "blank": 543,
+    "void": 33
+  },
+  {
+    "fips": "36029",
+    "name": "Erie",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 166539
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 14087
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 128008
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 31996
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 679
+      }
+    ],
+    "blank": 4679,
+    "void": 99
+  },
+  {
+    "fips": "36031",
+    "name": "Essex",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 6484
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 508
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 7878
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 644
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 22
+      }
+    ],
+    "blank": 248,
+    "void": 4
+  },
+  {
+    "fips": "36033",
+    "name": "Franklin",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 5628
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 375
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 8385
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 795
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 14
+      }
+    ],
+    "blank": 165,
+    "void": 2
+  },
+  {
+    "fips": "36035",
+    "name": "Fulton",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 4915
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 340
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 12342
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1249
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 33
+      }
+    ],
+    "blank": 180,
+    "void": 1
+  },
+  {
+    "fips": "36037",
+    "name": "Genesee",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 5823
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 451
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 13558
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2445
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 35
+      }
+    ],
+    "blank": 123,
+    "void": 19
+  },
+  {
+    "fips": "36039",
+    "name": "Greene",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 6730
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 921
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 10722
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1770
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 22
+      }
+    ],
+    "blank": 193,
+    "void": 9
+  },
+  {
+    "fips": "36041",
+    "name": "Hamilton",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 770
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 61
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 1871
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 180
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 0
+      }
+    ],
+    "blank": 51,
+    "void": 2
+  },
+  {
+    "fips": "36043",
+    "name": "Herkimer",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 5389
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 364
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 14984
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1545
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 36
+      }
+    ],
+    "blank": 178,
+    "void": 0
+  },
+  {
+    "fips": "36045",
+    "name": "Jefferson",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 8690
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 514
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 20488
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2035
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 39
+      }
+    ],
+    "blank": 196,
+    "void": 10
+  },
+  {
+    "fips": "36047",
+    "name": "Kings",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 340206
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 61908
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 151740
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 11690
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 973
+      }
+    ],
+    "blank": 4654,
+    "void": 1424
+  },
+  {
+    "fips": "36049",
+    "name": "Lewis",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 1933
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 135
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 7876
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 704
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 7
+      }
+    ],
+    "blank": 119,
+    "void": 5
+  },
+  {
+    "fips": "36051",
+    "name": "Livingston",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 7551
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 585
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 13922
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2246
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 46
+      }
+    ],
+    "blank": 156,
+    "void": 6
+  },
+  {
+    "fips": "36053",
+    "name": "Madison",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 9438
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 754
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 13693
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2279
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 101
+      }
+    ],
+    "blank": 244,
+    "void": 7
+  },
+  {
+    "fips": "36055",
+    "name": "Monroe",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 137598
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 11153
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 105694
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 20943
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 550
+      }
+    ],
+    "blank": 1953,
+    "void": 59
+  },
+  {
+    "fips": "36057",
+    "name": "Montgomery",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 4708
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 320
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 9457
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1401
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 38
+      }
+    ],
+    "blank": 143,
+    "void": 4
+  },
+  {
+    "fips": "36059",
+    "name": "Nassau",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 222305
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 9731
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 264736
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 21411
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 457
+      }
+    ],
+    "blank": 1947,
+    "void": 270
+  },
+  {
+    "fips": "36061",
+    "name": "New York",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 336737
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 35412
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 74592
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 5567
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 1003
+      }
+    ],
+    "blank": 3047,
+    "void": 3389
+  },
+  {
+    "fips": "36063",
+    "name": "Niagara",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 27791
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 1878
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 38338
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 8289
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 128
+      }
+    ],
+    "blank": 548,
+    "void": 14
+  },
+  {
+    "fips": "36065",
+    "name": "Oneida",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 23658
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 1700
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 44685
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 5306
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 170
+      }
+    ],
+    "blank": 472,
+    "void": 15
+  },
+  {
+    "fips": "36067",
+    "name": "Onondaga",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 85144
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 6266
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 66148
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 12091
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 328
+      }
+    ],
+    "blank": 1173,
+    "void": 59
+  },
+  {
+    "fips": "36069",
+    "name": "Ontario",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 18945
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 1221
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 22154
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 3825
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 83
+      }
+    ],
+    "blank": 324,
+    "void": 8
+  },
+  {
+    "fips": "36071",
+    "name": "Orange",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 51397
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 2989
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 62845
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 6713
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 198
+      }
+    ],
+    "blank": 697,
+    "void": 36
+  },
+  {
+    "fips": "36073",
+    "name": "Orleans",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 3086
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 206
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 8988
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1388
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 20
+      }
+    ],
+    "blank": 86,
+    "void": 11
+  },
+  {
+    "fips": "36075",
+    "name": "Oswego",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 12217
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 898
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 23935
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 3159
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 72
+      }
+    ],
+    "blank": 202,
+    "void": 6
+  },
+  {
+    "fips": "36077",
+    "name": "Otsego",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 8104
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 691
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 11833
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1422
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 52
+      }
+    ],
+    "blank": 124,
+    "void": 6
+  },
+  {
+    "fips": "36079",
+    "name": "Putnam",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 15108
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 1305
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 22195
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2703
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 39
+      }
+    ],
+    "blank": 329,
+    "void": 0
+  },
+  {
+    "fips": "36081",
+    "name": "Queens",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 252652
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 24628
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 148466
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 11813
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 727
+      }
+    ],
+    "blank": 2917,
+    "void": 1235
+  },
+  {
+    "fips": "36083",
+    "name": "Rensselaer",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 25411
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 3110
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 27702
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 6047
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 135
+      }
+    ],
+    "blank": 425,
+    "void": 2
+  },
+  {
+    "fips": "36085",
+    "name": "Richmond",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 44481
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 2654
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 87263
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 6555
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 180
+      }
+    ],
+    "blank": 767,
+    "void": 75
+  },
+  {
+    "fips": "36087",
+    "name": "Rockland",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 45258
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 2596
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 51462
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 9556
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 157
+      }
+    ],
+    "blank": 1180,
+    "void": 58
+  },
+  {
+    "fips": "36091",
+    "name": "Saratoga",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 45052
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 3131
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 48463
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 7361
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 166
+      }
+    ],
+    "blank": 657,
+    "void": 16
+  },
+  {
+    "fips": "36093",
+    "name": "Schenectady",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 25310
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 2322
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 22557
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 4215
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 148
+      }
+    ],
+    "blank": 26,
+    "void": 468
+  },
+  {
+    "fips": "36095",
+    "name": "Schoharie",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 3560
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 363
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 7651
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1259
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 27
+      }
+    ],
+    "blank": 85,
+    "void": 8
+  },
+  {
+    "fips": "36097",
+    "name": "Schuyler",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 2436
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 225
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 4613
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 479
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 25
+      }
+    ],
+    "blank": 26,
+    "void": 1
+  },
+  {
+    "fips": "36099",
+    "name": "Seneca",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 4226
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 325
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 6267
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 735
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 24
+      }
+    ],
+    "blank": 53,
+    "void": 4
+  },
+  {
+    "fips": "36089",
+    "name": "St. Lawrence",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 10811
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 780
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 20167
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2520
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 42
+      }
+    ],
+    "blank": 516,
+    "void": 2
+  },
+  {
+    "fips": "36101",
+    "name": "Steuben",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 9053
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 613
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 22815
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 2071
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 56
+      }
+    ],
+    "blank": 121,
+    "void": 13
+  },
+  {
+    "fips": "36103",
+    "name": "Suffolk",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 223688
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 12048
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 289077
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 41260
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 418
+      }
+    ],
+    "blank": 2205,
+    "void": 180
+  },
+  {
+    "fips": "36105",
+    "name": "Sullivan",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 8912
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 847
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 13363
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1646
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 19
+      }
+    ],
+    "blank": 187,
+    "void": 31
+  },
+  {
+    "fips": "36107",
+    "name": "Tioga",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 5723
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 394
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 11863
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1008
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 27
+      }
+    ],
+    "blank": 106,
+    "void": 7
+  },
+  {
+    "fips": "36109",
+    "name": "Tompkins",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 20685
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 4634
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 8639
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 991
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 83
+      }
+    ],
+    "blank": 167,
+    "void": 12
+  },
+  {
+    "fips": "36111",
+    "name": "Ulster",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 38207
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 6376
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 28938
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 4409
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 139
+      }
+    ],
+    "blank": 637,
+    "void": 18
+  },
+  {
+    "fips": "36113",
+    "name": "Warren",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 11601
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 772
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 14131
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1630
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 49
+      }
+    ],
+    "blank": 205,
+    "void": 5
+  },
+  {
+    "fips": "36115",
+    "name": "Washington",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 7361
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 585
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 12655
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1500
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 29
+      }
+    ],
+    "blank": 20,
+    "void": 3
+  },
+  {
+    "fips": "36117",
+    "name": "Wayne",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 10074
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 740
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 19081
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 3742
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 57
+      }
+    ],
+    "blank": 173,
+    "void": 5
+  },
+  {
+    "fips": "36119",
+    "name": "Westchester",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 187342
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 10860
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 119352
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 10683
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 282
+      }
+    ],
+    "blank": 3067,
+    "void": 0
+  },
+  {
+    "fips": "36121",
+    "name": "Wyoming",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 3041
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 251
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 10376
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 1602
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 27
+      }
+    ],
+    "blank": 82,
+    "void": 8
+  },
+  {
+    "fips": "36123",
+    "name": "Yates",
+    "status": "certified",
+    "ballotLines": [
+      {
+        "candidate": "hochul",
+        "party": "DEM",
+        "votes": 2715
+      },
+      {
+        "candidate": "hochul",
+        "party": "WOR",
+        "votes": 186
+      },
+      {
+        "candidate": "zeldin",
+        "party": "REP",
+        "votes": 4729
+      },
+      {
+        "candidate": "zeldin",
+        "party": "CON",
+        "votes": 633
+      },
+      {
+        "candidate": "write-in",
+        "party": "",
+        "votes": 28
+      }
+    ],
+    "blank": 52,
+    "void": 2
+  }
+]

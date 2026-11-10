@@ -1,0 +1,12 @@
+Manual transcription of NYS Board of Elections, HomeNoJS.aspx, retrieved via web tool November 9, 2026.
+Source: https://nyenr.elections.ny.gov/HomeNoJS.aspx
+Page timestamp: 11/09/2026 9:10:02 PM
+Governor and Lieutenant Governor > All Counties
+Active Registered Voters: 12,665,686
+Election Districts Reporting: 12,199 of 13,187
+Kathy C. Hochul / Adrienne E. Adams: DEM 3,247,323; WOR 372,854; candidate total 3,620,177
+Bruce A. Blakeman / Todd Hood: REP 2,141,711; CON 234,340; Vote Affordable 40,625; candidate total 2,416,676
+Blank 56,513; Void 5,274; Write-in 12,721; Total Votes 6,111,361
+Unofficial. The source warns of unscanned emergency Election Day ballots from Westchester.
+Direct download returned HTTP 403. This is a transcription, not an archived original HTML document.
+No county results were acquired for 2026. Do not allocate statewide votes to counties.
