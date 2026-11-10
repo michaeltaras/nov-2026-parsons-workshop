@@ -1,3 +1,4 @@
+import historicalCounties from "../../data/processed/governor-2022.json";
 import { describe, it, expect } from "vitest";
 import {
   aggregateVotes,
@@ -7,11 +8,13 @@ import {
   joinCounty,
   margin,
   share,
-  statewide2022,
+  combineResults,
   statewide2026,
 } from "../../src/data/elections";
 import { votes, percent, marginLabel } from "../../src/utils/formatNumbers";
 import { electionColor, colors, missing } from "../../src/utils/electionColors";
+const statewide2022 = combineResults(historicalCounties);
+
 describe("Candidate votes and fusion ballot lines", () => {
   it("adds different ballot lines for the same candidate once", () => {
     expect(
@@ -47,6 +50,61 @@ describe("Candidate votes and fusion ballot lines", () => {
         statewide2026.void,
     ).toBe(6111361);
   });
+
+  it("reconciles every 2026 county party line and ballot category with the independent statewide totals", () => {
+    const combined = combineResults(counties);
+    expect(aggregateVotes(combined.ballotLines)).toEqual(
+      aggregateVotes(statewide2026.ballotLines),
+    );
+    for (const stateLine of statewide2026.ballotLines) {
+      const countySum = combined.ballotLines
+        .filter(
+          (line) =>
+            line.candidate === stateLine.candidate &&
+            line.party === stateLine.party,
+        )
+        .reduce((sum, line) => sum + line.votes, 0);
+      expect(countySum, `${stateLine.candidate} / ${stateLine.party}`).toBe(
+        stateLine.votes,
+      );
+    }
+    expect(combined.blank).toBe(56513);
+    expect(combined.void).toBe(5274);
+    expect(candidateVoteTotal(combined) + combined.blank + combined.void).toBe(
+      6111361,
+    );
+    expect(
+      counties.reduce((sum, county) => sum + county.districtsReporting, 0),
+    ).toBe(12199);
+    expect(
+      counties.reduce((sum, county) => sum + county.districtsTotal, 0),
+    ).toBe(13187);
+    for (const county of counties) {
+      expect(county.status).toBe("unofficial");
+      expect(county.year).toBe(2026);
+      expect(county.updatedISO).toBe(statewide2026.updatedISO);
+      expect(county.ballotLines.map((line) => line.party)).toEqual([
+        "DEM",
+        "WOR",
+        "REP",
+        "CON",
+        "Vote Affordable",
+        "",
+      ]);
+    }
+  });
+  it("preserves the Westchester reporting discrepancy without dropping its votes", () => {
+    const county = joinCounty("36119")!;
+    expect(aggregateVotes(county.ballotLines)).toEqual({
+      hochul: 225858,
+      blakeman: 116086,
+      "write-in": 442,
+    });
+    expect(county.districtsReporting).toBe(0);
+    expect(county.districtsTotal).toBe(906);
+    expect(county.sourcePartial).toBe(false);
+    expect(margin(county)).not.toBeNull();
+  });
   it("rejects negative and fractional vote counts", () => {
     for (const value of [-1, 1.5, NaN])
       expect(() =>
@@ -58,7 +116,7 @@ describe("Honest denominators and missing data", () => {
   const example = {
     ballotLines: [
       { candidate: "hochul", party: "DEM", votes: 60 },
-      { candidate: "zeldin", party: "REP", votes: 30 },
+      { candidate: "blakeman", party: "REP", votes: 30 },
       { candidate: "write-in", party: "", votes: 10 },
     ],
     blank: 90,
@@ -83,7 +141,7 @@ describe("Honest denominators and missing data", () => {
         ...example,
         ballotLines: [
           { candidate: "hochul", party: "", votes: 5 },
-          { candidate: "zeldin", party: "", votes: 5 },
+          { candidate: "blakeman", party: "", votes: 5 },
         ],
       }),
     ).toBe(0);

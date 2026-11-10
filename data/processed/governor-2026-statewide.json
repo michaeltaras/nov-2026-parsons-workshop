@@ -1,9 +1,4 @@
 {
-  "year": 2026,
-  "status": "unofficial",
-  "timestamp": "November 9, 2026 \u00b7 9:10 p.m. ET",
-  "districtsReporting": 12199,
-  "districtsTotal": 13187,
   "ballotLines": [
     {
       "candidate": "hochul",
@@ -37,5 +32,12 @@
     }
   ],
   "blank": 56513,
-  "void": 5274
+  "void": 5274,
+  "districtsReporting": 12199,
+  "districtsTotal": 13187,
+  "sourcePartial": false,
+  "status": "unofficial",
+  "year": 2026,
+  "updatedISO": "2026-11-10T02:10:02.000Z",
+  "timestamp": "November 9, 2026 \u00b7 9:10 p.m. ET"
 }

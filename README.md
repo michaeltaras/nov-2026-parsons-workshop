@@ -2,7 +2,7 @@
 
 An interactive New York election explorer for the Parsons data visualization club. Explore all 62 counties, candidate vote shares, close county margins, and the relationship between geography and the popular vote.
 
-**Data release:** the county explorer uses **certified 2022 governor results**. A separate **unofficial 2026 statewide snapshot** is available; verified 2026 county data was not acquired. No 2026 county results are invented. [Sources and definitions](data/sources.md).
+**Data release:** all views use an **unofficial 2026 governor snapshot**, updated November 9 at 9:10 p.m. ET. All 62 county totals reconcile exactly with the statewide totals, including fusion party lines, write-ins, blanks/voids, and district counts. The app is a fixed snapshot, not a live feed. Westchester reports votes alongside 0/906 districts reporting and has an incomplete-ballot warning. Historical 2022 data remains archived for future work. [Sources and definitions](data/sources.md).
 
 ## Open in Codespaces
 

@@ -14,7 +14,8 @@ describe("Shared product behavior", () => {
     expect(
       within(details).getByRole("heading", { name: "Albany County" }),
     ).toBeInTheDocument();
-    expect(within(details).getByText("69,035 votes")).toBeInTheDocument();
+    expect(within(details).getByText("76,171 votes")).toBeInTheDocument();
+    expect(within(details).getByText("Bruce Blakeman")).toBeInTheDocument();
     expect(screen.getByLabelText("Jump to a county")).toHaveValue("36001");
     expect(
       screen.getByText("Albany County", { selector: "strong" }),
@@ -46,15 +47,54 @@ describe("Shared product behavior", () => {
       screen.getByRole("button", { name: /^Albany County,/ }),
     ).toHaveAttribute("fill", electionColor(margin(counties[0])));
   });
-  it("changes to the 2026 statewide snapshot without displaying historical county data as 2026", () => {
+  it("starts with 2026 county results and explains incomplete reporting", () => {
     render(<App />);
-    fireEvent.click(
-      screen.getByRole("button", { name: "2026 Statewide snapshot" }),
-    );
-    expect(screen.getByText("Bruce Blakeman")).toBeInTheDocument();
+    expect(
+      within(screen.getByLabelText("2026 statewide results")).getByText(
+        "Bruce Blakeman",
+      ),
+    ).toBeInTheDocument();
     expect(screen.getByText("3,620,177 votes")).toBeInTheDocument();
-    expect(screen.queryByLabelText(/Interactive map/)).not.toBeInTheDocument();
+    expect(
+      screen.getByLabelText(/Interactive map.*unofficial 2026/),
+    ).toBeInTheDocument();
     expect(screen.getByText(/12,199 of 13,187/)).toBeInTheDocument();
     expect(screen.getByText(/does not update live/)).toBeInTheDocument();
+    expect(screen.queryByText(/Zeldin|certified 2022/)).not.toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText("Jump to a county"), {
+      target: { value: "36119" },
+    });
+    const details = screen.getByRole("complementary", {
+      name: "Selected county details",
+    });
+    expect(
+      within(details).getByText("0 of 906 districts reporting"),
+    ).toBeInTheDocument();
+    expect(
+      within(details).getByText(/unscanned emergency ballots/),
+    ).toBeInTheDocument();
+    expect(within(details).getByText("225,858 votes")).toBeInTheDocument();
+  });
+  it("ranks current reported margins and links ranking selection to every view", () => {
+    render(<App />);
+    const rows = screen
+      .getAllByRole("button")
+      .filter((button) => button.classList.contains("rank-row"));
+    expect(rows.map((row) => row.textContent)).toEqual([
+      expect.stringContaining("Broome"),
+      expect.stringContaining("Ontario"),
+      expect.stringContaining("Suffolk"),
+      expect.stringContaining("Nassau"),
+      expect.stringContaining("Warren"),
+      expect.stringContaining("Putnam"),
+    ]);
+    fireEvent.click(rows[0]);
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36007");
+    expect(
+      screen.getByRole("button", { name: /^Broome County,/ }),
+    ).toHaveAttribute("aria-pressed", "true");
+    expect(
+      screen.getByRole("heading", { name: "Broome County" }),
+    ).toBeInTheDocument();
   });
 });

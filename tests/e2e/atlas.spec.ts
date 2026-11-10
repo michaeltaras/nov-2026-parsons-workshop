@@ -32,15 +32,18 @@ test("2026 snapshot is honest, and the app makes no external runtime requests", 
       external.push(request.url());
   });
   await page.goto("/");
-  await page.getByRole("button", { name: "2026 Statewide snapshot" }).click();
   await expect(page.getByText("3,620,177 votes")).toBeVisible();
   await expect(
     page.getByText("2026 results are unofficial and incomplete."),
   ).toBeVisible();
-  await expect(page.getByLabel(/Interactive map/)).toHaveCount(0);
-  await page
-    .getByRole("button", { name: /Explore the certified 2022 county map/ })
-    .click();
-  await expect(page.getByLabel(/Interactive map of 62/)).toBeVisible();
+  await expect(
+    page.getByLabel(/Interactive map.*unofficial 2026/),
+  ).toBeVisible();
+  await page.getByLabel("Jump to a county").selectOption("36119");
+  await expect(page.getByText("0 of 906 districts reporting")).toBeVisible();
+  await expect(page.getByText("225,858 votes")).toBeVisible();
+  await expect(
+    page.getByText(/The source reports votes alongside 0 districts/),
+  ).toBeVisible();
   expect(external).toEqual([]);
 });

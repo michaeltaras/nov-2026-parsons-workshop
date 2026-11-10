@@ -4,7 +4,7 @@ This file is instructor-facing, not access-controlled. A public repository expos
 
 ## Before class
 
-The goal is a credible shared product whose ordinary dependencies require communication. AI can generate code quickly; use the workshop to foreground judgment, review, and ownership. Read `data/sources.md` first: county exploration is certified 2022, while 2026 is an unofficial statewide snapshot. Do not tell students the map depicts 2026.
+The goal is a credible shared product whose ordinary dependencies require communication. AI can generate code quickly; use the workshop to foreground judgment, review, and ownership. Read `data/sources.md` first: all result views now show the reconciled unofficial 2026 county/state snapshot. Explain its fixed timestamp and Westchester reporting warning; do not describe it as certified.
 
 1. Create a GitHub repository in the teaching organization. Upload this folder, including the lockfile and raw data. The delivery includes a local Git baseline on `main`; no GitHub repository, remote, PR, or protection rule has been created automatically. Review the local commit, then use `gh repo create ORG/REPO --source=. --push` with the visibility you intend.
 2. Give participants write access through a workshop team. Decide whether external collaborators, forks, and organization policies are compatible with Codespaces and preview deployments. Do not give everyone administrator access.
@@ -34,7 +34,7 @@ These pairs are not guaranteed conflicts. They are legitimate overlapping decisi
 | 06 + 26 | Initial county defaults can overwrite a URL selection | Which source of state wins on load and history? |
 | 07 + 13 | Ranking expansion changes the claim and headline | What is a county comparison versus a race? |
 | 11 + 18 | Search focus and map keyboard state may compete | Can readers predict where the next key goes? |
-| 15 + 21 | New partial 2026 data needs missing states before rendering | Does absence mean unavailable, zero, or not reported? |
+| 15 + 21 | A refreshed snapshot may introduce missing data or new reporting inconsistencies | Does absence mean unavailable, zero, or not reported? |
 | 16 + 25 | Ballot-line UI may assume fixed candidate identities | Which metadata belongs to the contest? |
 | 19 + 23 | Label placement depends on map geometry and inset scale | Can the two PRs share a projection interface? |
 | 20 + 27 | Distribution denominators can change under filters | What population does each view summarize? |

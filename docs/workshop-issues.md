@@ -46,7 +46,7 @@ Choose a user outcome, claim it, and coordinate with peers before changing share
 
 **Problem and why it matters:** The statewide results have several kinds of numbers. Explore alignment and number typography to make comparisons easier.
 
-**Acceptance / discussion:** Use consistent number formatting; preserve full totals somewhere visible; verify the 2022 and 2026 views and narrow screens.
+**Acceptance / discussion:** Use consistent number formatting; preserve full totals somewhere visible; verify the statewide and county views and narrow screens.
 
 **Relevant areas:** src/features/StatewideResults.tsx; src/utils/formatNumbers.ts; src/styles/global.css
 
@@ -92,9 +92,9 @@ Choose a user outcome, claim it, and coordinate with peers before changing share
 
 **Difficulty:** Beginner
 
-**Problem and why it matters:** The methodology is distant from the numbers. Help readers distinguish historical certified data from a current fixed snapshot.
+**Problem and why it matters:** The methodology is distant from the numbers. Help readers identify the current fixed snapshot and its unofficial status.
 
-**Acceptance / discussion:** Both year views show status and appropriate date; no timestamp implies live updates; source links remain discoverable.
+**Acceptance / discussion:** Statewide and county views show status and appropriate date; no timestamp implies live updates; source links remain discoverable.
 
 **Relevant areas:** src/features/StatewideResults.tsx; src/App.tsx; data/sources.md
 
@@ -248,13 +248,13 @@ Choose a user outcome, claim it, and coordinate with peers before changing share
 
 ## Advanced
 
-### 21. Acquire and verify 2026 county results
+### 21. Refresh and audit the 2026 county snapshot
 
 **Difficulty:** Advanced
 
-**Problem and why it matters:** The current year has only a statewide snapshot. A properly sourced county import would fulfill the central current-election use case.
+**Problem and why it matters:** The current county snapshot reconciles, but it is still unofficial and dated. Establish a reliable process for acquiring and reviewing a newer snapshot.
 
-**Acceptance / discussion:** Preserve original raw evidence, timestamp, reporting status and fusion lines; reconcile counties to the same snapshot or explain discrepancies; join all FIPS explicitly; tests distinguish missing from zero; update source docs and year labels.
+**Acceptance / discussion:** Preserve both old and new raw evidence, timestamps, reporting status and fusion lines; reconcile all county sums against the same statewide snapshot and an independent official source; explain discrepancies rather than patching counts; keep tests and source docs current.
 
 **Relevant areas:** scripts/prepare-data.py; data; src/data/elections.ts; src/App.tsx
 
@@ -264,7 +264,7 @@ Choose a user outcome, claim it, and coordinate with peers before changing share
 
 **Difficulty:** Advanced
 
-**Problem and why it matters:** Readers want change over time, but the current incomplete snapshot cannot support a county swing chart. Research a legitimate same-office baseline.
+**Problem and why it matters:** Readers want change over time. The archived 2022 governor data offers a same-office baseline, but the current snapshot is incomplete; decide what comparison is legitimate and how to label its limitations.
 
 **Acceptance / discussion:** Verify comparable county data for the same office and document completion status; preserve raw sources and fusion accounting; define percentage-point change; omit unavailable comparisons; add calculation tests.
 

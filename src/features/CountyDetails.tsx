@@ -1,9 +1,10 @@
 import {
   aggregateVotes,
   candidateVoteTotal,
+  candidates,
   margin,
   share,
-  statewide2022,
+  statewide2026,
   type County,
 } from "../data/elections";
 import { votes, percent, marginLabel } from "../utils/formatNumbers";
@@ -12,20 +13,20 @@ export default function CountyDetails({ county }: { county: County }) {
   const totals = aggregateVotes(county.ballotLines);
   const total = candidateVoteTotal(county);
   const value = margin(county)!;
-  const difference = value - margin(statewide2022)!;
+  const difference = value - margin(statewide2026)!;
   return (
     <aside className="county-details" aria-label="Selected county details">
       <span className="section-kicker">
-        COUNTY SPOTLIGHT <span>2022</span>
+        COUNTY SPOTLIGHT <span>2026</span>
       </span>
       <h2>
         {county.name} <span>County</span>
       </h2>
       <span className="status">
-        <i /> Certified results
+        <i /> Unofficial · fixed snapshot
       </span>
       <div className="county-margin">
-        <small>{value >= 0 ? "HOCHUL" : "ZELDIN"} MARGIN</small>
+        <small>{value >= 0 ? "HOCHUL" : "BLAKEMAN"} REPORTED MARGIN</small>
         <strong style={{ color: value >= 0 ? democratic : republican }}>
           {marginLabel(value)}
           <em> pts</em>
@@ -38,8 +39,8 @@ export default function CountyDetails({ county }: { county: County }) {
       </div>
       <div className="county-candidates">
         {[
-          ["hochul", "Kathy Hochul", democratic],
-          ["zeldin", "Lee Zeldin", republican],
+          ["hochul", candidates.hochul.name, democratic],
+          ["blakeman", candidates.blakeman.name, republican],
           ["write-in", "Write-ins", "#858879"],
         ].map(([id, name, color]) => (
           <div key={id}>
@@ -58,6 +59,22 @@ export default function CountyDetails({ county }: { county: County }) {
             <small>{votes(totals[id])} votes</small>
           </div>
         ))}
+      </div>
+      <div className="reporting-note" aria-label="County reporting status">
+        <strong>
+          {votes(county.districtsReporting)} of {votes(county.districtsTotal)}{" "}
+          districts reporting
+        </strong>
+        <p>
+          District reporting is not the percentage of votes counted. Even full
+          district reporting does not mean the result is certified.
+        </p>
+        {county.name === "Westchester" && (
+          <p className="county-warning">
+            The source reports votes alongside 0 districts reporting. The BOE
+            warns of unscanned emergency ballots here; results are incomplete.
+          </p>
+        )}
       </div>
       <dl>
         <div>

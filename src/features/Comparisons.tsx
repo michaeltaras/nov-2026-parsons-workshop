@@ -3,7 +3,7 @@ import {
   margin,
   aggregateVotes,
   candidateVoteTotal,
-  statewide2022,
+  statewide2026,
   type County,
 } from "../data/elections";
 import { electionColor, democratic, republican } from "../utils/electionColors";
@@ -23,7 +23,7 @@ export default function Comparisons({
       <section className="chart-card">
         <span className="section-kicker">02 / THE CLOSEST COUNTIES</span>
         <h2>Every vote carries weight.</h2>
-        <p>The six smallest candidate-share margins in 2022.</p>
+        <p>The six smallest reported candidate-share margins in 2026.</p>
         <div className="ranking">
           {closest.map((item, index) => (
             <button
@@ -49,7 +49,8 @@ export default function Comparisons({
           ))}
         </div>
         <p className="fine-print">
-          Select a county to explore its results across the atlas.
+          Unofficial, incomplete counts; this ordering can change. Select a
+          county to explore its results.
         </p>
       </section>
       <section className="chart-card">
@@ -57,11 +58,11 @@ export default function Comparisons({
           03 / PUTTING THE VOTE IN PERSPECTIVE
         </span>
         <h2>A county isn’t the whole story.</h2>
-        <p>Candidate vote shares · certified 2022 governor results</p>
+        <p>Candidate vote shares · unofficial 2026 governor results</p>
         <div className="comparison-bars">
           {[
             { name: `${county.name} County`, result: county },
-            { name: "New York State", result: statewide2022 },
+            { name: "New York State", result: statewide2026 },
           ].map(({ name, result }) => {
             const totals = aggregateVotes(result.ballotLines);
             const total = candidateVoteTotal(result);
@@ -82,11 +83,11 @@ export default function Comparisons({
                   </span>
                   <span
                     style={{
-                      width: `${(totals.zeldin / total) * 100}%`,
+                      width: `${(totals.blakeman / total) * 100}%`,
                       background: republican,
                     }}
                   >
-                    {percent((totals.zeldin / total) * 100)}
+                    {percent((totals.blakeman / total) * 100)}
                   </span>
                   <span style={{ flex: 1, background: "#999c90" }} />
                 </div>
@@ -101,7 +102,7 @@ export default function Comparisons({
           </span>
           <span>
             <i style={{ background: republican }} />
-            Zeldin
+            Blakeman
           </span>
           <span>
             <i style={{ background: "#999c90" }} />

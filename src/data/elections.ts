@@ -1,4 +1,4 @@
-import countyData from "../../data/processed/governor-2022.json";
+import countyData from "../../data/processed/governor-2026.json";
 import snapshot from "../../data/processed/governor-2026-statewide.json";
 import geographyData from "../../data/geography/ny-counties.json";
 import type { FeatureCollection, MultiPolygon } from "geojson";
@@ -16,6 +16,11 @@ export interface County extends Result {
   fips: string;
   name: string;
   status: string;
+  year: number;
+  districtsReporting: number;
+  districtsTotal: number;
+  sourcePartial: boolean;
+  updatedISO: string;
 }
 export const counties: County[] = countyData;
 export const statewide2026 = snapshot;
@@ -25,7 +30,6 @@ export const geography = geographyData as FeatureCollection<
 >;
 export const candidates = {
   hochul: { name: "Kathy Hochul", party: "Democratic · Working Families" },
-  zeldin: { name: "Lee Zeldin", party: "Republican · Conservative" },
   blakeman: {
     name: "Bruce Blakeman",
     party: "Republican · Conservative · Vote Affordable",
@@ -49,7 +53,7 @@ export function share(votes: number, total: number): number | null {
   return total > 0 ? (votes / total) * 100 : null;
 }
 // Signed Democratic minus Republican share, in percentage points of all candidate votes.
-export function margin(result: Result, republican = "zeldin"): number | null {
+export function margin(result: Result, republican = "blakeman"): number | null {
   const totals = aggregateVotes(result.ballotLines);
   if (totals.hochul === undefined || totals[republican] === undefined)
     return null;
@@ -65,4 +69,3 @@ export function combineResults(results: Result[]): Result {
 export function joinCounty(fips: string): County | undefined {
   return counties.find((county) => county.fips === fips);
 }
-export const statewide2022 = combineResults(counties);

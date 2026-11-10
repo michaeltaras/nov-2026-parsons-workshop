@@ -16,14 +16,11 @@ export default function StatewideResults({
 }) {
   const totals = aggregateVotes(result.ballotLines);
   const total = candidateVoteTotal(result);
-  const challenger = year === 2022 ? "zeldin" : "blakeman";
+  const challenger = "blakeman";
   return (
     <section className="statewide" aria-label={`${year} statewide results`}>
       <div className="section-kicker">
-        STATEWIDE POPULAR VOTE{" "}
-        <span>
-          {year === 2022 ? "Certified results" : "Unofficial snapshot"}
-        </span>
+        STATEWIDE POPULAR VOTE <span>Unofficial snapshot</span>
       </div>
       <div className="candidate-grid">
         {(["hochul", challenger] as const).map((id, i) => (

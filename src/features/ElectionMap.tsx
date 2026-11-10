@@ -51,7 +51,7 @@ export default function ElectionMap({
         <svg
           className="county-map"
           viewBox="0 0 810 520"
-          aria-label="Interactive map of 62 New York counties, certified 2022 governor results"
+          aria-label="Interactive map of 62 New York counties, unofficial 2026 governor results"
         >
           <g>
             {geography.features.map((feature) => {

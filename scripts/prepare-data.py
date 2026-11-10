@@ -93,30 +93,108 @@ for index, party in enumerate(["DEM", "WOR", "REP", "CON"]):
     assert county_sum == official_state_sum, f"Statewide reconciliation failed: {party}"
 write_json("data/processed/governor-2022.json", counties)
 
-# 2026 is a transcribed, fixed statewide snapshot, not a county dataset or live feed.
+# Retain the separate BOE transcription as an independent statewide cross-check.
 with (ROOT / "data/raw/governor-2026-statewide.csv").open() as source:
-    lines = list(csv.DictReader(source))
-
-ballot_lines = []
+    official_rows = list(csv.DictReader(source))
+official_ballot_lines = []
 non_candidate_counts = {}
-for line in lines:
-    count = int(line["votes"])
-    if line["candidate"] in ["blank", "void"]:
-        non_candidate_counts[line["candidate"]] = count
+for row in official_rows:
+    count = int(row["votes"])
+    if row["candidate"] in ["blank", "void"]:
+        non_candidate_counts[row["candidate"]] = count
     else:
-        ballot_lines.append({
-            "candidate": line["candidate"], "party": line["party"], "votes": count,
+        official_ballot_lines.append({
+            "candidate": row["candidate"], "party": row["party"], "votes": count,
         })
+assert sum(int(row["votes"]) for row in official_rows) == 6111361
 
-assert sum(int(line["votes"]) for line in lines) == 6111361
-write_json("data/processed/governor-2026-statewide.json", {
-    "year": 2026,
-    "status": "unofficial",
-    "timestamp": "November 9, 2026 · 9:10 p.m. ET",
-    "districtsReporting": 12199,
-    "districtsTotal": 13187,
-    "ballotLines": ballot_lines,
-    "blank": non_candidate_counts["blank"],
-    "void": non_candidate_counts["void"],
+# New York Focus mirrors the BOE election-night pages. Preserve the complete raw
+# response separately; import only governor data and never add candidate totals
+# to the party lines that already make up those totals.
+with (ROOT / "data/raw/nysfocus-results-2026-11-09.json").open() as source:
+    feed = json.load(source)
+race = feed["races"]["governor"]
+assert feed["updatedISO"] == "2026-11-10T02:10:02.000Z", "Review the source timestamp before replacing this snapshot"
+assert len(race["counties"]) == 62, "Governor snapshot must contain all 62 counties"
+
+candidate_ids = {
+    "Kathy C. Hochul / Adrienne E. Adams": "hochul",
+    "Bruce A. Blakeman / Todd Hood": "blakeman",
+}
+
+
+def normalize_2026_result(result):
+    ballot_lines = []
+    assert {candidate["name"] for candidate in result["candidates"]} == set(candidate_ids)
+    for candidate in result["candidates"]:
+        assert sum(line["votes"] for line in candidate["lines"]) == candidate["votes"], "Fusion lines must equal the candidate total"
+        for line in candidate["lines"]:
+            assert isinstance(line["votes"], int) and line["votes"] >= 0
+            ballot_lines.append({
+                "candidate": candidate_ids[candidate["name"]],
+                "party": line["party"],
+                "votes": line["votes"],
+            })
+    ballot_lines.append({"candidate": "write-in", "party": "", "votes": result["writeIn"]})
+    assert sum(line["votes"] for line in ballot_lines) + result["blank"] + result["void"] == result["total"], "Candidate, write-in, blank and void votes must reconcile to ballots"
+    assert 0 <= result["reporting"] <= result["districts"]
+    return {
+        "ballotLines": ballot_lines,
+        "blank": result["blank"],
+        "void": result["void"],
+        "districtsReporting": result["reporting"],
+        "districtsTotal": result["districts"],
+        # The feed's partial flag is preserved, not interpreted as certification
+        # or full district reporting. Westchester has partial=false but 0/906.
+        "sourcePartial": result["partial"],
+        "status": "unofficial",
+        "year": 2026,
+        "updatedISO": feed["updatedISO"],
+    }
+
+
+current_counties = []
+for source_county in race["counties"]:
+    # This is the sole source-name exception; do not broadly strip punctuation.
+    name = "St. Lawrence" if source_county["area"] == "St.Lawrence" else source_county["area"]
+    county = {"fips": fips_by_name[name], "name": name, **normalize_2026_result(source_county)}
+    current_counties.append(county)
+assert len({county["fips"] for county in current_counties}) == 62, "Duplicate or missing county FIPS"
+assert {county["fips"] for county in current_counties} == set(fips_by_name.values())
+
+current_state = normalize_2026_result(race)
+current_state["timestamp"] = "November 9, 2026 · 9:10 p.m. ET"
+
+# Verify counties against the feed's independent statewide section AND our
+# separately transcribed official BOE statewide snapshot, at the same timestamp.
+checks = []
+for official_line in official_ballot_lines:
+    identity = (official_line["candidate"], official_line["party"])
+    county_sum = sum(
+        line["votes"] for county in current_counties for line in county["ballotLines"]
+        if (line["candidate"], line["party"]) == identity
+    )
+    feed_state_sum = sum(
+        line["votes"] for line in current_state["ballotLines"]
+        if (line["candidate"], line["party"]) == identity
+    )
+    assert county_sum == feed_state_sum == official_line["votes"], f"2026 statewide party-line mismatch: {identity}"
+    checks.append({"metric": ":".join(identity), "countySum": county_sum, "feedStatewide": feed_state_sum, "officialStatewide": official_line["votes"], "difference": 0})
+
+for field, official_value in [
+    ("blank", non_candidate_counts["blank"]), ("void", non_candidate_counts["void"]),
+    ("districtsReporting", 12199), ("districtsTotal", 13187),
+]:
+    county_sum = sum(county[field] for county in current_counties)
+    assert county_sum == current_state[field] == official_value, f"2026 statewide mismatch: {field}"
+    checks.append({"metric": field, "countySum": county_sum, "feedStatewide": current_state[field], "officialStatewide": official_value, "difference": 0})
+
+assert sum(county["total"] for county in race["counties"]) == race["total"] == 6111361
+checks.append({"metric": "ballots", "countySum": 6111361, "feedStatewide": race["total"], "officialStatewide": 6111361, "difference": 0})
+write_json("data/processed/governor-2026.json", current_counties)
+write_json("data/processed/governor-2026-statewide.json", current_state)
+write_json("data/processed/governor-2026-reconciliation.json", {
+    "updatedISO": feed["updatedISO"], "feedReceivedAt": feed["receivedAt"],
+    "counties": len(current_counties), "checks": checks,
 })
-print("Prepared 62 counties, authentic boundaries, and the 2026 statewide snapshot.")
+print("2026 county snapshot reconciles exactly with the feed and official BOE statewide totals.")
