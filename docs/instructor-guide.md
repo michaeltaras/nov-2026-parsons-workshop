@@ -4,7 +4,7 @@ This file is instructor-facing, not access-controlled. A public repository expos
 
 ## Before class
 
-The goal is a credible shared product whose ordinary dependencies require communication. AI can generate code quickly; use the workshop to foreground judgment, review, and ownership. Read `data/sources.md` first: all result views now show the reconciled unofficial 2026 county/state snapshot. Explain its fixed timestamp and Westchester reporting warning; do not describe it as certified.
+The goal is a credible shared product whose ordinary dependencies require communication. AI can generate code quickly; use the workshop to foreground judgment, review, and ownership. Read `data/sources.md` first: current-result views show the reconciled unofficial 2026 county/state snapshot, while the historical section explicitly compares it with certified 2022 governor results. Explain the fixed timestamp, Westchester reporting warning, and why county changes do not prove individual voter switching; do not describe 2026 as certified.
 
 1. Create a GitHub repository in the teaching organization. Upload this folder, including the lockfile and raw data. The delivery includes a local Git baseline on `main`; no GitHub repository, remote, PR, or protection rule has been created automatically. Review the local commit, then use `gh repo create ORG/REPO --source=. --push` with the visibility you intend.
 2. Give participants write access through a workshop team. Decide whether external collaborators, forks, and organization policies are compatible with Codespaces and preview deployments. Do not give everyone administrator access.

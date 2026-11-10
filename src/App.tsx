@@ -4,6 +4,8 @@ import ElectionMap from "./features/ElectionMap";
 import CountyDetails from "./features/CountyDetails";
 import StatewideResults from "./features/StatewideResults";
 import Comparisons from "./features/Comparisons";
+import MarginContributions from "./features/MarginContributions";
+import HistoricalChanges from "./features/HistoricalChanges";
 export default function App() {
   const [selected, setSelected] = useState("36061");
   const county = counties.find((item) => item.fips === selected)!;
@@ -38,9 +40,9 @@ export default function App() {
           </h1>
           <div className="intro-bottom">
             <p>
-              Look closer at the places, people, and patterns
-              <br className="desktop-break" /> behind New York’s election
-              results.
+              See where the margin came from, what changed since 2022,
+              <br className="desktop-break" /> and how the map changes when
+              votes determine size.
             </p>
             <span className="project-tag">
               <i /> A collaborative visualization project
@@ -70,6 +72,11 @@ export default function App() {
           districts reporting. The BOE warns of unscanned emergency ballots in
           Westchester.
         </p>
+        <nav className="story-navigation" aria-label="Explore the story">
+          <a href="#map-title">01 · Geography & votes ↓</a>
+          <a href="#contributions">02 · Where the margin came from ↓</a>
+          <a href="#changes">03 · What changed since 2022 ↓</a>
+        </nav>
         <div className="explore-grid">
           <ElectionMap selected={selected} onSelect={setSelected} />
           <CountyDetails county={county} />
@@ -89,6 +96,8 @@ export default function App() {
           </select>
           <span>All 62 counties · one shared selection</span>
         </div>
+        <MarginContributions county={county} onSelect={setSelected} />
+        <HistoricalChanges county={county} onSelect={setSelected} />
         <Comparisons county={county} onSelect={setSelected} />
         <section className="methodology" id="methodology">
           <div>
@@ -127,9 +136,17 @@ export default function App() {
               . All runtime data is bundled locally.
             </p>
             <p>
-              No turnout estimate, historical swing, or final 2026 winner is
-              inferred. See <code>data/sources.md</code> in the repository for
-              provenance and limitations.
+              The historical baseline is the certified 2022 governor election
+              from the{" "}
+              <a href="https://results.elections.ny.gov/contest/1">
+                NYS Board of Elections
+              </a>
+              . Historical shares include write-ins and exclude blank/void
+              ballots in both years. Changes compare certified 2022 results with
+              the incomplete 2026 snapshot, not individual voter behavior. No
+              turnout estimate or final 2026 winner is inferred. See{" "}
+              <code>data/sources.md</code> in the repository for provenance and
+              limitations.
             </p>
           </div>
         </section>

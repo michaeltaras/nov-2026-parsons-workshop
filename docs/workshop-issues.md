@@ -260,13 +260,13 @@ Choose a user outcome, claim it, and coordinate with peers before changing share
 
 **Potential interactions:** All result views, missing-data treatment, and state totals.
 
-### 22. Design a meaningful previous-election comparison
+### 22. Explain what drove the change in net votes
 
 **Difficulty:** Advanced
 
-**Problem and why it matters:** Readers want change over time. The archived 2022 governor data offers a same-office baseline, but the current snapshot is incomplete; decide what comparison is legitimate and how to label its limitations.
+**Problem and why it matters:** The historical view separates share-margin, net-vote, and candidate-vote-volume changes. Readers still cannot see how changes in vote shares and vote volume combine arithmetically to change net votes.
 
-**Acceptance / discussion:** Verify comparable county data for the same office and document completion status; preserve raw sources and fusion accounting; define percentage-point change; omit unavailable comparisons; add calculation tests.
+**Acceptance / discussion:** Discuss a clearly defined arithmetic decomposition; distinguish an accounting identity from a causal explanation; preserve certified-versus-incomplete labels and write-in denominators; explain choices of baseline; add tests that reconcile the decomposition.
 
 **Relevant areas:** data; scripts/prepare-data.py; src/data/elections.ts; src/features
 
@@ -284,13 +284,13 @@ Choose a user outcome, claim it, and coordinate with peers before changing share
 
 **Potential interactions:** Labels, projection, hover, and keyboard movement.
 
-### 24. Explore a population-sensitive alternative to land area
+### 24. Evaluate alternatives to displaced vote circles
 
 **Difficulty:** Advanced
 
-**Problem and why it matters:** The choropleth gives land visual prominence. Choose an alternate representation that helps people see voting power.
+**Problem and why it matters:** The vote-circle mode sizes area by reported candidate votes and displaces circles to avoid overlap. Evaluate whether another representation better balances geography, comparisons, and interaction.
 
-**Acceptance / discussion:** Discuss dots, proportional symbols, or a cartogram before implementation; size by a documented metric; keep meaningful geographic context; avoid implying population data exists when using candidate votes; test size logic.
+**Acceptance / discussion:** Compare the existing circles with dots, a cartogram, or another well-argued alternative; test the question it answers with peers; document the metric and geographic distortion; retain linked selection and proportional-size tests where appropriate.
 
 **Relevant areas:** src/features/ElectionMap.tsx; src/data/elections.ts; src/utils/electionColors.ts
 

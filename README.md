@@ -1,8 +1,8 @@
 # The 2026 Election Atlas
 
-An interactive New York election explorer for the Parsons data visualization club. Explore all 62 counties, candidate vote shares, close county margins, and the relationship between geography and the popular vote.
+An interactive New York election explorer for the Parsons data visualization club. Explore how counties contribute to the statewide margin, compare reported results with certified 2022 governor results, and switch from land area to circles sized by candidate votes. All three views share one county selection.
 
-**Data release:** all views use an **unofficial 2026 governor snapshot**, updated November 9 at 9:10 p.m. ET. All 62 county totals reconcile exactly with the statewide totals, including fusion party lines, write-ins, blanks/voids, and district counts. The app is a fixed snapshot, not a live feed. Westchester reports votes alongside 0/906 districts reporting and has an incomplete-ballot warning. Historical 2022 data remains archived for future work. [Sources and definitions](data/sources.md).
+**Data release:** current-result views use an **unofficial 2026 governor snapshot**, updated November 9 at 9:10 p.m. ET. All 62 county totals reconcile exactly with the statewide totals, including fusion party lines, write-ins, blanks/voids, and district counts. The app is a fixed snapshot, not a live feed. Westchester reports votes alongside 0/906 districts reporting and has an incomplete-ballot warning. A clearly labeled comparison uses certified 2022 governor results as its baseline. [Sources and definitions](data/sources.md).
 
 ## Open in Codespaces
 

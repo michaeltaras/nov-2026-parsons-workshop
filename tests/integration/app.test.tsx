@@ -12,7 +12,7 @@ describe("Shared product behavior", () => {
       name: "Selected county details",
     });
     expect(
-      within(details).getByRole("heading", { name: "Albany County" }),
+      within(details).getByRole("heading", { name: "Albany County", level: 2 }),
     ).toBeInTheDocument();
     expect(within(details).getByText("76,171 votes")).toBeInTheDocument();
     expect(within(details).getByText("Bruce Blakeman")).toBeInTheDocument();
@@ -60,7 +60,11 @@ describe("Shared product behavior", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/12,199 of 13,187/)).toBeInTheDocument();
     expect(screen.getByText(/does not update live/)).toBeInTheDocument();
-    expect(screen.queryByText(/Zeldin|certified 2022/)).not.toBeInTheDocument();
+    expect(
+      within(screen.getByLabelText("2026 statewide results")).queryByText(
+        /Zeldin|certified 2022/,
+      ),
+    ).not.toBeInTheDocument();
     fireEvent.change(screen.getByLabelText("Jump to a county"), {
       target: { value: "36119" },
     });
@@ -94,7 +98,100 @@ describe("Shared product behavior", () => {
       screen.getByRole("button", { name: /^Broome County,/ }),
     ).toHaveAttribute("aria-pressed", "true");
     expect(
-      screen.getByRole("heading", { name: "Broome County" }),
+      screen.getByRole("heading", { name: "Broome County", level: 2 }),
+    ).toBeInTheDocument();
+  });
+});
+
+describe("Connected editorial analysis", () => {
+  it("switches map encoding without losing selection and uses candidate votes for circle area", () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText("Jump to a county"), {
+      target: { value: "36001" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Vote circles" }));
+    const map = screen.getByLabelText(/Interactive map.*vote circles/);
+    expect(map.querySelectorAll(".vote-circle")).toHaveLength(62);
+    expect(
+      screen.getByRole("button", {
+        name: /^Albany County,.*115,976 candidate votes/,
+      }),
+    ).toHaveAttribute("aria-pressed", "true");
+    expect(
+      screen.getByLabelText("Circle area represents reported candidate votes"),
+    ).toBeInTheDocument();
+    fireEvent.keyDown(screen.getByRole("button", { name: /^Erie County,/ }), {
+      key: "Enter",
+    });
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36029");
+    fireEvent.click(screen.getByRole("button", { name: "Land area" }));
+    expect(
+      screen.getByRole("button", { name: /^Erie County,/ }),
+    ).toHaveAttribute("aria-pressed", "true");
+  });
+  it("links contribution and historical rows to map, county details, and each other", () => {
+    render(<App />);
+    fireEvent.click(
+      screen.getByRole("button", { name: /^Kings County contribution:/ }),
+    );
+    expect(
+      screen.getByRole("heading", { name: "Kings County", level: 2 }),
+    ).toBeInTheDocument();
+    expect(
+      within(screen.getByLabelText("Selected county contribution")).getByText(
+        "+366,835",
+      ),
+    ).toBeInTheDocument();
+    const history = screen.getByLabelText(
+      "Selected county historical comparison",
+    );
+    expect(
+      within(history).getByRole("heading", { name: "Kings County" }),
+    ).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "Show all 62 county comparisons" }),
+    );
+    fireEvent.click(
+      screen.getByRole("button", { name: /^Albany County comparison:/ }),
+    );
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36001");
+    expect(
+      screen.getByRole("button", { name: /^Albany County,/ }),
+    ).toHaveAttribute("aria-pressed", "true");
+    expect(
+      within(screen.getByLabelText("Selected county contribution")).getByText(
+        "+36,792",
+      ),
+    ).toBeInTheDocument();
+    expect(within(history).getByText("+15,302")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Certified 2022 vs. incomplete 2026/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/not evidence of individual voters switching/),
+    ).toBeInTheDocument();
+  });
+  it("shows both contribution directions and offers all counties behind the statewide sum", () => {
+    render(<App />);
+    const list = screen.getByLabelText("County net-vote contributions");
+    expect(
+      screen.getByText("2026 · UNOFFICIAL / INCOMPLETE"),
+    ).toBeInTheDocument();
+    expect(within(list).getAllByRole("button")).toHaveLength(8);
+    expect(
+      within(list).getAllByRole("button", { name: /toward Blakeman/ }),
+    ).toHaveLength(4);
+    expect(
+      within(list).getAllByRole("button", { name: /toward Hochul/ }),
+    ).toHaveLength(4);
+    fireEvent.click(
+      screen.getByRole("button", { name: "Show all 62 county contributions" }),
+    );
+    expect(within(list).getAllByRole("button")).toHaveLength(62);
+    expect(
+      within(screen.getByLabelText("Statewide net-vote arithmetic")).getByText(
+        "+1,203,501",
+      ),
     ).toBeInTheDocument();
   });
 });

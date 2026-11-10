@@ -1,9 +1,16 @@
 import { useMemo, useState } from "react";
 import { geoConicConformal, geoPath } from "d3";
-import { geography, joinCounty, margin } from "../data/elections";
+import {
+  candidateVoteTotal,
+  geography,
+  joinCounty,
+  margin,
+} from "../data/elections";
 import { electionColor } from "../utils/electionColors";
-import { marginLabel } from "../utils/formatNumbers";
+import { marginLabel, votes } from "../utils/formatNumbers";
 import Legend from "../components/Legend";
+import { createVoteCircleLayout, voteCircleRadius } from "./voteCircleLayout";
+
 export default function ElectionMap({
   selected,
   onSelect,
@@ -13,6 +20,7 @@ export default function ElectionMap({
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
   const [labels, setLabels] = useState(false);
+  const [mode, setMode] = useState<"land" | "votes">("land");
   const path = useMemo(
     () =>
       geoPath(
@@ -29,13 +37,37 @@ export default function ElectionMap({
       ),
     [],
   );
+  const circles = useMemo(() => {
+    const anchors = geography.features.map((feature) => {
+      const [x, y] = path.centroid(feature);
+      const county = joinCounty(feature.properties.fips);
+      return {
+        fips: feature.properties.fips,
+        x,
+        y,
+        votes: county ? candidateVoteTotal(county) : 0,
+      };
+    });
+    return createVoteCircleLayout(anchors).sort((a, b) => b.votes - a.votes);
+  }, [path]);
   const active = joinCounty(hovered ?? selected);
+  const shapes =
+    mode === "land"
+      ? geography.features.map((feature) => ({
+          fips: feature.properties.fips,
+          feature,
+          circle: null,
+        }))
+      : circles.map((circle) => ({ fips: circle.fips, feature: null, circle }));
+
   return (
     <section className="map-panel" aria-labelledby="map-title">
       <div className="panel-heading">
         <div>
-          <span className="section-kicker">01 / THE GEOGRAPHY OF THE VOTE</span>
-          <h2 id="map-title">One state. 62 different stories.</h2>
+          <span className="section-kicker">
+            01 / GEOGRAPHY OR VOTING WEIGHT?
+          </span>
+          <h2 id="map-title">Same votes. A different picture.</h2>
         </div>
         <button
           className={labels ? "toggle active" : "toggle"}
@@ -45,52 +77,106 @@ export default function ElectionMap({
           County labels
         </button>
       </div>
+      <div
+        className="map-mode-control"
+        role="group"
+        aria-label="Map representation"
+      >
+        <button aria-pressed={mode === "land"} onClick={() => setMode("land")}>
+          Land area
+        </button>
+        <button
+          aria-pressed={mode === "votes"}
+          onClick={() => setMode("votes")}
+        >
+          Vote circles
+        </button>
+        <span>
+          {mode === "land"
+            ? "County shapes give land visual weight."
+            : "Circle area gives each reported candidate vote equal visual weight."}
+        </span>
+      </div>
       <div className="map-surface">
         <span className="lake lake-ontario">LAKE ONTARIO</span>
         <span className="lake lake-erie">LAKE ERIE</span>
         <svg
           className="county-map"
           viewBox="0 0 810 520"
-          aria-label="Interactive map of 62 New York counties, unofficial 2026 governor results"
+          aria-label={`Interactive map of 62 New York counties, unofficial 2026 governor results, ${mode === "land" ? "land area" : "vote circles"}`}
         >
+          {mode === "votes" && (
+            <g className="circle-geography" aria-hidden="true">
+              {geography.features.map((feature) => (
+                <path key={feature.id} d={path(feature) ?? ""} />
+              ))}
+              {circles.map((circle) => (
+                <line
+                  key={circle.fips}
+                  x1={circle.anchorX}
+                  y1={circle.anchorY}
+                  x2={circle.x}
+                  y2={circle.y}
+                />
+              ))}
+            </g>
+          )}
           <g>
-            {geography.features.map((feature) => {
-              const county = joinCounty(feature.properties.fips);
+            {shapes.map(({ fips, feature, circle }) => {
+              const county = joinCounty(fips);
               const value = county ? margin(county) : null;
-              const isSelected = feature.id === selected;
+              const isSelected = fips === selected;
               return (
-                <path
-                  key={feature.id}
-                  d={path(feature) ?? ""}
-                  fill={electionColor(value)}
+                <g
+                  key={fips}
                   className={isSelected ? "county selected" : "county"}
+                  fill={electionColor(value)}
                   tabIndex={0}
                   role="button"
-                  aria-label={`${feature.properties.name} County, ${marginLabel(value)}`}
+                  aria-label={`${county?.name ?? fips} County, ${marginLabel(value)}${circle ? `, ${votes(circle.votes)} candidate votes` : ""}`}
                   aria-pressed={isSelected}
-                  onMouseEnter={() => setHovered(feature.properties.fips)}
+                  onMouseEnter={() => setHovered(fips)}
                   onMouseLeave={() => setHovered(null)}
-                  onFocus={() => setHovered(feature.properties.fips)}
+                  onFocus={() => setHovered(fips)}
                   onBlur={() => setHovered(null)}
-                  onClick={() => onSelect(feature.properties.fips)}
+                  onClick={() => onSelect(fips)}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
                       event.preventDefault();
-                      onSelect(feature.properties.fips);
+                      onSelect(fips);
                     }
                   }}
                 >
                   <title>
-                    {feature.properties.name}: {marginLabel(value)}
+                    {county?.name}: {marginLabel(value)}
+                    {circle ? ` · ${votes(circle.votes)} candidate votes` : ""}
                   </title>
-                </path>
+                  {circle ? (
+                    <circle
+                      className="vote-circle"
+                      cx={circle.x}
+                      cy={circle.y}
+                      r={circle.radius}
+                    />
+                  ) : (
+                    feature && <path d={path(feature) ?? ""} />
+                  )}
+                </g>
               );
             })}
           </g>
           {labels && (
             <g className="map-labels" aria-hidden="true">
               {geography.features.map((feature) => {
-                const [x, y] = path.centroid(feature);
+                const circle =
+                  mode === "votes"
+                    ? circles.find(
+                        (item) => item.fips === feature.properties.fips,
+                      )
+                    : undefined;
+                const [x, y] = circle
+                  ? [circle.x, circle.y]
+                  : path.centroid(feature);
                 return (
                   <text key={feature.id} x={x} y={y}>
                     {feature.properties.name}
@@ -103,15 +189,56 @@ export default function ElectionMap({
         <div className="map-readout" aria-live="polite">
           <span>{active?.name} County</span>
           <strong>{active ? marginLabel(margin(active)) : "No results"}</strong>
+          {mode === "votes" && active && (
+            <small>{votes(candidateVoteTotal(active))} candidate votes</small>
+          )}
         </div>
         <div className="map-note">
           N ↑<span>Hover to explore · click to select</span>
         </div>
       </div>
+      {mode === "votes" && (
+        <div
+          className="circle-size-legend"
+          aria-label="Circle area represents reported candidate votes"
+        >
+          <div className="circle-size-swatches">
+            {/* Match the map's 810-unit width and rendered width. Sharing a
+                radius function alone would not preserve sizes across SVGs. */}
+            <svg viewBox="0 0 810 110" aria-hidden="true">
+              {[100000, 500000].map((count, index) => (
+                <circle
+                  key={count}
+                  data-votes={count}
+                  cx={333 + index * 144}
+                  cy={76 - voteCircleRadius(count)}
+                  r={voteCircleRadius(count)}
+                />
+              ))}
+            </svg>
+            <div className="size-count-labels">
+              {[100000, 500000].map((count, index) => (
+                <span
+                  key={count}
+                  style={{ left: `${((333 + index * 144) / 810) * 100}%` }}
+                >
+                  {votes(count)}
+                </span>
+              ))}
+            </div>
+          </div>
+          <span>
+            Circle area = reported candidate votes, including write-ins;
+            excluding blank and void ballots.
+          </span>
+        </div>
+      )}
       <Legend />
       <p className="map-caption">
-        Land doesn’t vote. Each county’s color shows its margin, not its number
-        of voters. Explore the vote comparison below for another perspective.
+        {mode === "land"
+          ? "Land doesn’t vote. Switch to vote circles to see how voter counts change the picture. Colors show the reported percentage-point margin in both modes."
+          : "Circles are sized by reported candidate votes, not population or turnout. They are shifted to avoid overlap; guide lines connect them to county map centroids. The same margin color scale applies."}{" "}
+        All 2026 counts are unofficial and incomplete.
       </p>
     </section>
   );

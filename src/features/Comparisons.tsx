@@ -21,7 +21,7 @@ export default function Comparisons({
   return (
     <div className="supporting-grid">
       <section className="chart-card">
-        <span className="section-kicker">02 / THE CLOSEST COUNTIES</span>
+        <span className="section-kicker">04 / THE CLOSEST COUNTIES</span>
         <h2>Every vote carries weight.</h2>
         <p>The six smallest reported candidate-share margins in 2026.</p>
         <div className="ranking">
@@ -54,9 +54,7 @@ export default function Comparisons({
         </p>
       </section>
       <section className="chart-card">
-        <span className="section-kicker">
-          03 / PUTTING THE VOTE IN PERSPECTIVE
-        </span>
+        <span className="section-kicker">05 / YOUR COUNTY AND THE STATE</span>
         <h2>A county isn’t the whole story.</h2>
         <p>Candidate vote shares · unofficial 2026 governor results</p>
         <div className="comparison-bars">
