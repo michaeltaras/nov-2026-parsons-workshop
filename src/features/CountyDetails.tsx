@@ -17,16 +17,16 @@ export default function CountyDetails({ county }: { county: County }) {
   return (
     <aside className="county-details" aria-label="Selected county details">
       <span className="section-kicker">
-        COUNTY SPOTLIGHT <span>2026</span>
+        County results <span>2026</span>
       </span>
       <h2>
         {county.name} <span>County</span>
       </h2>
       <span className="status">
-        <i /> Unofficial · fixed snapshot
+        <i /> Unofficial results
       </span>
       <div className="county-margin">
-        <small>{value >= 0 ? "HOCHUL" : "BLAKEMAN"} REPORTED MARGIN</small>
+        <small>{value >= 0 ? "Hochul" : "Blakeman"} reported margin</small>
         <strong style={{ color: value >= 0 ? democratic : republican }}>
           {marginLabel(value)}
           <em> pts</em>
@@ -41,7 +41,7 @@ export default function CountyDetails({ county }: { county: County }) {
         {[
           ["hochul", candidates.hochul.name, democratic],
           ["blakeman", candidates.blakeman.name, republican],
-          ["write-in", "Write-ins", "#858879"],
+          ["write-in", "Write-ins", "#888888"],
         ].map(([id, name, color]) => (
           <div key={id}>
             <div className="result-row">

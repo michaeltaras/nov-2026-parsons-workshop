@@ -18,4 +18,7 @@ Data provenance: the full New York Focus public feed response is now retained lo
 
 Analytical feature verification: county net votes reconcile to the independent +1,203,501 statewide difference; historical comparisons cover all 62 FIPS and explicitly distinguish 2022 Zeldin from 2026 Blakeman; circle area follows candidate votes with no inflated minimum. Shared selection is tested through map modes, contribution rows, historical rows, and the existing views. Visual desktop/mobile checks confirmed readable provisional labels and separate map circles (minimum observed gap between any two symbols exceeded 3 SVG units). The mobile historical chart uses a full-width scale so endpoint markers remain distinguishable. Browser tests also compare actual rendered map and legend circle diameters at both viewport sizes, protecting against mismatched SVG scaling. No new raw results, extrapolated votes, or external runtime requests were introduced.
 
-Analytical preview: `docs/atlas-analysis-preview.png`. The main preview shows the vote-circle mode in `docs/atlas-preview.png`.
+Analytical preview: `docs/atlas-analysis-preview.png`. The main preview shows the publication header and statewide results in `docs/atlas-preview.png`.
+
+
+The publication redesign replaces the cream/green theme and promotional copy with a white newspaper layout, direct chart headings, black rules, neutral controls, and a shared blue/red data palette. Existing domain, linked-selection, and legend-scale tests remain in place. Browser headline and map-control expectations use the updated wording. Raw data, metric definitions, thresholds, and candidate aggregation are unchanged. Desktop and mobile visual previews are refreshed in the same documentation image files.

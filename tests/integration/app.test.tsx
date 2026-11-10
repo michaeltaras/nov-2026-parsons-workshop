@@ -124,7 +124,7 @@ describe("Connected editorial analysis", () => {
       key: "Enter",
     });
     expect(screen.getByLabelText("Jump to a county")).toHaveValue("36029");
-    fireEvent.click(screen.getByRole("button", { name: "Land area" }));
+    fireEvent.click(screen.getByRole("button", { name: "County map" }));
     expect(
       screen.getByRole("button", { name: /^Erie County,/ }),
     ).toHaveAttribute("aria-pressed", "true");
@@ -175,7 +175,7 @@ describe("Connected editorial analysis", () => {
     render(<App />);
     const list = screen.getByLabelText("County net-vote contributions");
     expect(
-      screen.getByText("2026 · UNOFFICIAL / INCOMPLETE"),
+      screen.getByText("2026 · Unofficial and incomplete"),
     ).toBeInTheDocument();
     expect(within(list).getAllByRole("button")).toHaveLength(8);
     expect(

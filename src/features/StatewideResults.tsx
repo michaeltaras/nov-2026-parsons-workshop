@@ -20,7 +20,7 @@ export default function StatewideResults({
   return (
     <section className="statewide" aria-label={`${year} statewide results`}>
       <div className="section-kicker">
-        STATEWIDE POPULAR VOTE <span>Unofficial snapshot</span>
+        Candidate vote shares <span>Unofficial results</span>
       </div>
       <div className="candidate-grid">
         {(["hochul", challenger] as const).map((id, i) => (
@@ -37,7 +37,7 @@ export default function StatewideResults({
           </div>
         ))}
         <div className="total-votes">
-          <small>CANDIDATE VOTES</small>
+          <small>Total candidate votes</small>
           <strong>
             {(total / 1e6).toFixed(2)}
             <em> million</em>
@@ -56,14 +56,14 @@ export default function StatewideResults({
                   ? democratic
                   : id === challenger
                     ? republican
-                    : "#a2a397",
+                    : "#888888",
             }}
           />
         ))}
       </div>
       <p className="fine-print">
-        Ballot lines combined by candidate. Shares exclude blank and void
-        ballots. No race calls are made by this atlas.
+        Ballot lines are combined by candidate. Shares include write-ins and
+        exclude blank and void ballots.
       </p>
     </section>
   );

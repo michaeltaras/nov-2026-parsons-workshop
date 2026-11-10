@@ -21,8 +21,7 @@ export default function Comparisons({
   return (
     <div className="supporting-grid">
       <section className="chart-card">
-        <span className="section-kicker">04 / THE CLOSEST COUNTIES</span>
-        <h2>Every vote carries weight.</h2>
+        <h2>Closest county margins</h2>
         <p>The six smallest reported candidate-share margins in 2026.</p>
         <div className="ranking">
           {closest.map((item, index) => (
@@ -54,8 +53,7 @@ export default function Comparisons({
         </p>
       </section>
       <section className="chart-card">
-        <span className="section-kicker">05 / YOUR COUNTY AND THE STATE</span>
-        <h2>A county isn’t the whole story.</h2>
+        <h2>County and statewide vote shares</h2>
         <p>Candidate vote shares · unofficial 2026 governor results</p>
         <div className="comparison-bars">
           {[
@@ -87,7 +85,7 @@ export default function Comparisons({
                   >
                     {percent((totals.blakeman / total) * 100)}
                   </span>
-                  <span style={{ flex: 1, background: "#999c90" }} />
+                  <span style={{ flex: 1, background: "#888888" }} />
                 </div>
               </div>
             );
@@ -103,16 +101,14 @@ export default function Comparisons({
             Blakeman
           </span>
           <span>
-            <i style={{ background: "#999c90" }} />
+            <i style={{ background: "#888888" }} />
             Write-ins
           </span>
         </div>
         <div className="editorial-note">
-          <strong>Read beyond the map.</strong>
           <p>
-            A large county can have relatively few voters. Statewide results
-            count votes equally, regardless of the land area where they were
-            cast.
+            Each row shows vote shares, not vote totals. Rows have equal lengths
+            regardless of the number of candidate votes.
           </p>
         </div>
       </section>

@@ -33,14 +33,14 @@ export default function MarginContributions({
     >
       <div className="analysis-heading">
         <div>
-          <span className="section-kicker">
-            02 / HOW THE STATEWIDE MARGIN ADDS UP
-          </span>
+          <span className="section-kicker">Net votes</span>
           <h2 id="contributions-title">
-            Big leads and big places aren’t the same.
+            County contributions to the statewide margin
           </h2>
         </div>
-        <span className="provisional-tag">2026 · UNOFFICIAL / INCOMPLETE</span>
+        <span className="provisional-tag">
+          2026 · Unofficial and incomplete
+        </span>
       </div>
       <p className="analysis-deck">
         A county’s net contribution is Hochul votes minus Blakeman votes. These
@@ -52,21 +52,21 @@ export default function MarginContributions({
         aria-label="Statewide net-vote arithmetic"
       >
         <div>
-          <small>NET VOTES IN COUNTIES FAVORING HOCHUL</small>
+          <small>Net votes in counties favoring Hochul</small>
           <strong style={{ color: democratic }}>
             {votes(summary.towardHochul)}
           </strong>
         </div>
         <span aria-hidden="true">−</span>
         <div>
-          <small>NET VOTES IN COUNTIES FAVORING BLAKEMAN</small>
+          <small>Net votes in counties favoring Blakeman</small>
           <strong style={{ color: republican }}>
             {votes(summary.towardBlakeman)}
           </strong>
         </div>
         <span aria-hidden="true">=</span>
         <div>
-          <small>STATEWIDE REPORTED DIFFERENCE</small>
+          <small>Statewide reported difference</small>
           <strong>{signedVotes(netVotes(statewide2026)!)}</strong>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function MarginContributions({
           className="analysis-spotlight"
           aria-label="Selected county contribution"
         >
-          <span className="section-kicker">FOLLOWING YOUR COUNTY</span>
+          <span className="section-kicker">Selected county</span>
           <h3>{county.name} County</h3>
           <strong
             className="analysis-number"

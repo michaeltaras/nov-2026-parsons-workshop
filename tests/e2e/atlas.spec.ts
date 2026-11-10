@@ -4,7 +4,7 @@ test("county map, details, and comparison work at this viewport", async ({
 }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "New York, by the vote.",
+    "New York Governor Election Results",
   );
   const map = page.getByLabel(/Interactive map of 62/);
   await expect(map.locator("path")).toHaveCount(62);

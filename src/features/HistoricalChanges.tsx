@@ -54,12 +54,10 @@ export default function HistoricalChanges({
     >
       <div className="analysis-heading">
         <div>
-          <span className="section-kicker">
-            03 / SAME OFFICE, DIFFERENT ELECTION
-          </span>
-          <h2 id="changes-title">What changed—and how are we measuring it?</h2>
+          <span className="section-kicker">Governor · 2022–2026</span>
+          <h2 id="changes-title">Change since the 2022 governor election</h2>
         </div>
-        <span className="provisional-tag">PROVISIONAL COMPARISON</span>
+        <span className="provisional-tag">Provisional comparison</span>
       </div>
       <p className="comparison-caution">
         <strong>Certified 2022 vs. incomplete 2026.</strong> The 2026 snapshot
@@ -70,7 +68,7 @@ export default function HistoricalChanges({
       </p>
       <div className="history-state-summary">
         <p>
-          <small>STATEWIDE D−R SHARE MARGIN</small>
+          <small>Statewide D−R share margin</small>
           <strong>
             {marginLabel(margin(statewide2022, "zeldin"))} →{" "}
             {marginLabel(margin(statewide2026))}
@@ -78,7 +76,7 @@ export default function HistoricalChanges({
           <span>{changeLabel(statewideChange)} in the current count</span>
         </p>
         <p>
-          <small>STATEWIDE NET-VOTE DIFFERENCE</small>
+          <small>Change in statewide net votes (D−R)</small>
           <strong>{signedVotes(statewideNetChange)}</strong>
           <span>change in Hochul votes minus Republican-ticket votes</span>
         </p>
@@ -177,7 +175,7 @@ export default function HistoricalChanges({
           className="analysis-spotlight"
           aria-label="Selected county historical comparison"
         >
-          <span className="section-kicker">FOLLOWING YOUR COUNTY</span>
+          <span className="section-kicker">Selected county</span>
           <h3>{county.name} County</h3>
           {selected ? (
             <>
@@ -206,7 +204,7 @@ export default function HistoricalChanges({
                   <dd>{signedVotes(selected.netChange)}</dd>
                 </div>
               </dl>
-              <h4>Vote volume is a different question.</h4>
+              <h4>Candidate votes counted</h4>
               <p>
                 {votes(selected.votes2022)} candidate votes in certified 2022
                 results; {votes(selected.votes2026)} reported so far in 2026 (

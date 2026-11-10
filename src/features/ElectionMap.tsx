@@ -64,10 +64,8 @@ export default function ElectionMap({
     <section className="map-panel" aria-labelledby="map-title">
       <div className="panel-heading">
         <div>
-          <span className="section-kicker">
-            01 / GEOGRAPHY OR VOTING WEIGHT?
-          </span>
-          <h2 id="map-title">Same votes. A different picture.</h2>
+          <span className="section-kicker">Governor · 2026</span>
+          <h2 id="map-title">County results</h2>
         </div>
         <button
           className={labels ? "toggle active" : "toggle"}
@@ -83,7 +81,7 @@ export default function ElectionMap({
         aria-label="Map representation"
       >
         <button aria-pressed={mode === "land"} onClick={() => setMode("land")}>
-          Land area
+          County map
         </button>
         <button
           aria-pressed={mode === "votes"}
@@ -93,8 +91,8 @@ export default function ElectionMap({
         </button>
         <span>
           {mode === "land"
-            ? "County shapes give land visual weight."
-            : "Circle area gives each reported candidate vote equal visual weight."}
+            ? "Color shows the reported margin between Hochul and Blakeman."
+            : "Circle area represents reported candidate votes."}
         </span>
       </div>
       <div className="map-surface">
@@ -236,7 +234,7 @@ export default function ElectionMap({
       <Legend />
       <p className="map-caption">
         {mode === "land"
-          ? "Land doesn’t vote. Switch to vote circles to see how voter counts change the picture. Colors show the reported percentage-point margin in both modes."
+          ? "County size represents land area, not vote totals. In both map modes, color shows the reported percentage-point margin."
           : "Circles are sized by reported candidate votes, not population or turnout. They are shifted to avoid overlap; guide lines connect them to county map centroids. The same margin color scale applies."}{" "}
         All 2026 counts are unofficial and incomplete.
       </p>
