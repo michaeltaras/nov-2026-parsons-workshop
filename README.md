@@ -4,6 +4,8 @@ An interactive New York election explorer for the Parsons data visualization clu
 
 **Data release:** current-result views use an **unofficial 2026 governor snapshot**, updated November 9 at 9:10 p.m. ET. All 62 county totals reconcile exactly with the statewide totals, including fusion party lines, write-ins, blanks/voids, and district counts. The app is a fixed snapshot, not a live feed. Westchester reports votes alongside 0/906 districts reporting and has an incomplete-ballot warning. A clearly labeled comparison uses certified 2022 governor results as its baseline. [Sources and definitions](data/sources.md).
 
+[Live results](https://michaeltaras.github.io/nov-2026-parsons-workshop/) · [Workshop issues](https://github.com/michaeltaras/nov-2026-parsons-workshop/issues) · [Open a Codespace](https://codespaces.new/michaeltaras/nov-2026-parsons-workshop)
+
 ## Open in Codespaces
 
 Open [the workshop repository](https://github.com/michaeltaras/nov-2026-parsons-workshop), then choose **Code → Codespaces → Create codespace on main**. Wait for the container setup to finish. It installs Node 22, pnpm, GitHub CLI, Codex CLI, Claude Code, dependencies, and Chromium. Requires a GitHub account with repository access and available Codespaces quota. See [instructor setup](docs/instructor-guide.md) for access and review requirements.

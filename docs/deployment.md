@@ -1,10 +1,14 @@
-# Optional static deployment
+# Static deployment
 
 `pnpm build` generates `dist/`. It is a static single page with relative asset paths (`base: './'`), no server, no secrets, and no remote runtime data. Browser navigation uses page anchors, so no route rewrites are needed.
 
-## GitHub Pages: main branch
+## Active workshop deployment
 
-Repository administrator: enable Actions; open Settings → Pages and select GitHub Actions as the source; create Actions repository variable `ENABLE_PAGES` with value `true`. Push main or manually dispatch “Deploy Pages (optional).” The included workflow builds and deploys dist using GitHub's token, with a Pages environment. Configure environment restrictions if your organization requires them. No domain or Pages deployment exists until you configure the repository.
+The public repository is [michaeltaras/nov-2026-parsons-workshop](https://github.com/michaeltaras/nov-2026-parsons-workshop). GitHub Pages is configured to publish from Actions at [the live results page](https://michaeltaras.github.io/nov-2026-parsons-workshop/). `ENABLE_PAGES=true` is set. A successful deployment and the served page were verified on November 14, 2026. Main-branch pushes automatically rebuild and deploy. PR previews are not configured.
+
+## GitHub Pages: setup for another repository
+
+Repository administrator: enable Actions; open Settings → Pages and select GitHub Actions as the source; create Actions repository variable `ENABLE_PAGES` with value `true`. Push main or manually dispatch “Deploy Pages (optional).” The included workflow builds and deploys dist using GitHub's token, with a Pages environment. Configure environment restrictions if your organization requires them. A new repository needs its own Pages settings; copying workflow files does not copy those settings.
 
 The workflow runs unit/component checks and a production build. Required PR browser checks belong to the separate Checks workflow. Pages does not supply per-PR previews in this setup.
 

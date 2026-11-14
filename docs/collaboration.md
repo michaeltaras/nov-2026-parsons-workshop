@@ -4,6 +4,10 @@ Claim an issue before coding. Announce which shared file you expect to change. R
 
 A useful peer review checks the user outcome, another affected view, source labels, and the tests. Run the branch locally or use a preview deployment. Ask one concrete question when something is unclear. “Looks good” without inspecting behavior is not a review. Leave actionable comments; disagreement about a visualization's purpose is useful evidence, not a merge conflict to resolve mechanically.
 
+## Current workshop settings
+
+Verified on November 14, 2026: public repository, `main` protection requiring the `checks` job, up-to-date branches, two approvals, code-owner review, dismissal of stale approvals, and resolved conversations. Force pushes and branch deletion are blocked. The instructor administrator retains a maintenance bypass. Squash merging is enabled; merge commits and rebase merging are disabled, and merged feature branches are deleted automatically. All 28 workshop issues are labeled by difficulty. Participant access must be granted separately.
+
 ## Administrator settings
 
 Protect `main` with a ruleset: require PRs, two approving reviews, code-owner review, dismissal of stale approvals, conversation resolution, and the `checks` status from the Checks workflow. Block force pushes and deletion. Disallow bypass if appropriate. First let Checks run once so GitHub offers the correct status. Never require optional deployment as a merge check.
