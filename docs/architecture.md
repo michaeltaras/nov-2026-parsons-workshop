@@ -4,22 +4,22 @@ React + TypeScript + Vite, D3 geographic projection and threshold colors, SVG ma
 
 ## Find your feature
 
-| Area | Location | Responsibility |
-| --- | --- | --- |
-| Page composition and selection | `src/App.tsx` | selected FIPS; all result views use the 2026 county/state snapshot |
-| Map | `src/features/ElectionMap.tsx` | D3 projection, land/vote-circle modes, hover/focus readout, county labels |
-| Spotlight | `src/features/CountyDetails.tsx` | selected county totals and comparison with statewide margin |
-| State overview | `src/features/StatewideResults.tsx` | candidate totals, shares, write-ins, popular-vote strip |
-| Contributions | `src/features/MarginContributions.tsx` | diverging net-vote bars and all-county statewide arithmetic |
-| Historical changes | `src/features/HistoricalChanges.tsx` | connected 2022/2026 margin dots, net-vote and count comparisons |
-| Analytical logic | `src/data/analysis.ts` | explicit historical baseline, net votes, county comparisons |
-| Vote-circle layout | `src/features/voteCircleLayout.ts` | shared area scale and deterministic, displaced layout |
-| Supporting charts | `src/features/Comparisons.tsx` | closest-county ranking and selected county/state bars |
-| Legend | `src/components/Legend.tsx` | ordered shared color swatches and threshold labels |
-| Data contract and calculations | `src/data/elections.ts` | ballot lines, aggregation, candidate denominator, signed margin, geographic join |
-| Shared appearance | `src/utils/electionColors.ts`, `src/utils/formatNumbers.ts` | one scale and number conventions for multiple views |
-| Layout | `src/styles/global.css` | editorial system and responsive breakpoints |
-| Source processing | `scripts/prepare-data.py` | raw CSV/KML → normalized JSON; reconciliation assertions |
+| Area                           | Location                                                    | Responsibility                                                                   |
+| ------------------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Page composition and selection | `src/App.tsx`                                               | selected FIPS; all result views use the 2026 county/state snapshot               |
+| Map                            | `src/features/ElectionMap.tsx`                              | D3 projection, land/vote-circle modes, hover/focus readout, county labels        |
+| Spotlight                      | `src/features/CountyDetails.tsx`                            | selected county totals and comparison with statewide margin                      |
+| State overview                 | `src/features/StatewideResults.tsx`                         | candidate totals, shares, write-ins, popular-vote strip                          |
+| Contributions                  | `src/features/MarginContributions.tsx`                      | diverging net-vote bars and all-county statewide arithmetic                      |
+| Historical changes             | `src/features/HistoricalChanges.tsx`                        | connected 2022/2026 margin dots, net-vote and count comparisons                  |
+| Analytical logic               | `src/data/analysis.ts`                                      | explicit historical baseline, net votes, county comparisons                      |
+| Vote-circle layout             | `src/features/voteCircleLayout.ts`                          | shared area scale and deterministic, displaced layout                            |
+| Supporting charts              | `src/features/Comparisons.tsx`                              | closest-county ranking and selected county/state bars                            |
+| Legend                         | `src/components/Legend.tsx`                                 | ordered shared color swatches and threshold labels                               |
+| Data contract and calculations | `src/data/elections.ts`                                     | ballot lines, aggregation, candidate denominator, signed margin, geographic join |
+| Shared appearance              | `src/utils/electionColors.ts`, `src/utils/formatNumbers.ts` | one scale and number conventions for multiple views                              |
+| Layout                         | `src/styles/global.css`                                     | editorial system and responsive breakpoints                                      |
+| Source processing              | `scripts/prepare-data.py`                                   | raw CSV/KML → normalized JSON; reconciliation assertions                         |
 
 ## Relationships worth reviewing
 
@@ -49,7 +49,6 @@ The structure permits normal overlapping changes. Before touching a shared file,
 `Result` retains the vote contract. `County` now also requires year, update timestamp, district reporting counts, and the source partial flag. The default margin challenger is `blakeman`. County details and comparisons use the independent `statewide2026` snapshot, rather than defining statewide results by summing counties at runtime. The preparation script and tests independently verify that those sums match. Historical calculations must pass the correct challenger explicitly.
 
 The preparation script checks every candidate’s party lines, each county’s ballot identity, 62 unique matching FIPS, county sums against the feed’s statewide section, and the separate BOE CSV transcription. It writes `governor-2026-reconciliation.json`. CI reproduces that report along with the datasets. `sourcePartial: false` does not mean complete: Westchester retains positive votes and 0/906 district reporting. The UI preserves this discrepancy, explains it, and never infers turnout or vote completion from district counts.
-
 
 ## Three editorial questions, one shared county
 

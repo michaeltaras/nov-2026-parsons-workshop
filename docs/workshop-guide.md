@@ -1,10 +1,10 @@
 # Workshop guide
 
-The goal is to discover what collaboration still requires when an agent can produce code quickly. The atlas is a shared product; a technically valid change can still be an unhelpful feature or an inconsistent experience.
+The goal is to discover what collaboration still requires when an agent can produce code quickly. The election results app is a shared product; a technically valid change can still be an unhelpful feature or an inconsistent experience.
 
 ## A 90-minute session
 
-1. **0–10 min:** Open the atlas and find something surprising. Identify the displayed year, denominator, and source. Briefly discuss land area versus vote counts.
+1. **0–10 min:** Open the election results app and find something surprising. Identify the displayed year, denominator, and source. Briefly discuss land area versus vote counts.
 2. **10–20 min:** Open Codespaces, run `pnpm dev`, and authenticate an agent. Pair up for reviews; choose different issues. Claim your issue and make a branch.
 3. **20–45 min:** Ask the agent to read `AGENTS.md` and the issue. Discuss ambiguous requirements with another participant. Make the smallest useful change, review the diff, test an affected sibling view, and open a PR.
 4. **45–65 min:** Swap PRs for review. Run the changes or use a preview. Explain what you checked and ask for revisions when needed. Merge with instructor and peer approval.

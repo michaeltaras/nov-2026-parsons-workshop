@@ -57,11 +57,12 @@ describe("County contributions to the statewide difference", () => {
 describe("Same-office historical comparison", () => {
   it("joins all 62 counties by FIPS and explicitly compares Zeldin with Blakeman", () => {
     expect(counties2022).toHaveLength(62);
-    for (const county of counties)
+    for (const county of counties) {
       expect(
         compareCounty(county),
         `Missing baseline for ${county.name}`,
       ).not.toBeNull();
+    }
     const albany = counties.find((county) => county.name === "Albany")!;
     const comparison = compareCounty(albany)!;
     expect(comparison.net2022).toBe(21490);

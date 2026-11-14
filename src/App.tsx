@@ -14,9 +14,9 @@ export default function App() {
       <a className="skip-link" href="#explore">
         Skip to results
       </a>
-      <header className="masthead">
-        <a href="#" className="brand">
-          The Election Atlas
+      <header className="masthead" id="top">
+        <a href="#top" className="brand">
+          New York Election Results
         </a>
         <nav aria-label="Main navigation">
           <a href="#explore">Results</a>
@@ -129,11 +129,11 @@ export default function App() {
         </section>
       </main>
       <footer>
-        <a className="brand" href="#">
-          The Election Atlas
+        <a className="brand" href="#top">
+          New York Election Results
         </a>
         <p>Parsons School of Design · Data visualization workshop</p>
-        <a href="#">Back to top</a>
+        <a href="#top">Back to top</a>
       </footer>
     </>
   );

@@ -28,8 +28,9 @@ test("2026 snapshot is honest, and the app makes no external runtime requests", 
 }) => {
   const external: string[] = [];
   page.on("request", (request) => {
-    if (!request.url().startsWith("http://127.0.0.1:5173"))
+    if (!request.url().startsWith("http://127.0.0.1:5173")) {
       external.push(request.url());
+    }
   });
   await page.goto("/");
   await expect(page.getByText("3,620,177 votes")).toBeVisible();

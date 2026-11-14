@@ -1,3 +1,6 @@
+// SVG county controls require roles because HTML buttons cannot wrap SVG shapes.
+// The map also uses a labeled div to group its representation buttons.
+/* oxlint-disable jsx-a11y/prefer-tag-over-role */
 import { useMemo, useState } from "react";
 import { geoConicConformal, geoPath } from "d3";
 import {

@@ -16,8 +16,9 @@ const issues = [
     /^### (\d+)\. (.+)\n([\s\S]*?)(?=^### |^## |$(?![\s\S]))/gm,
   ),
 ];
-if (issues.length !== 28)
+if (issues.length !== 28) {
   throw new Error(`Expected 28 issues, found ${issues.length}`);
+}
 let existing = [];
 if (args.includes("--apply")) {
   existing = JSON.parse(

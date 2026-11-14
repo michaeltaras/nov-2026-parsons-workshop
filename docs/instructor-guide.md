@@ -6,9 +6,9 @@ This file is instructor-facing, not access-controlled. A public repository expos
 
 The goal is a credible shared product whose ordinary dependencies require communication. AI can generate code quickly; use the workshop to foreground judgment, review, and ownership. Read `data/sources.md` first: current-result views show the reconciled unofficial 2026 county/state snapshot, while the historical section explicitly compares it with certified 2022 governor results. Explain the fixed timestamp, Westchester reporting warning, and why county changes do not prove individual voter switching; do not describe 2026 as certified.
 
-1. Create a GitHub repository in the teaching organization. Upload this folder, including the lockfile and raw data. The delivery includes a local Git baseline on `main`; no GitHub repository, remote, PR, or protection rule has been created automatically. Review the local commit, then use `gh repo create ORG/REPO --source=. --push` with the visibility you intend.
+1. Use [michaeltaras/nov-2026-parsons-workshop](https://github.com/michaeltaras/nov-2026-parsons-workshop), the instructor-owned workshop repository. The project includes the application, lockfile, raw data, CI workflows, and Codespaces configuration. Review the current GitHub setup and successful workflow runs before class.
 2. Give participants write access through a workshop team. Decide whether external collaborators, forks, and organization policies are compatible with Codespaces and preview deployments. Do not give everyone administrator access.
-3. Enable Actions. Run Checks on main; require its `checks` job in a main-branch ruleset. Require pull requests, two approvals, resolved conversations, stale-approval dismissal, no force pushes, and no deletions. Add a real instructor owner in `.github/CODEOWNERS` and require code-owner review. See `collaboration.md` for limitations and why two counts alone do not enforce reviewer roles.
+3. Enable Actions. Run Checks on main; require its `checks` job in a main-branch ruleset. Require pull requests, two approvals, resolved conversations, stale-approval dismissal, no force pushes, and no deletions. The committed `.github/CODEOWNERS` assigns instructor review to `@michaeltaras`; require code-owner review. See `collaboration.md` for limitations and why two counts alone do not enforce reviewer roles.
 4. Open a fresh Codespace yourself. Wait for `.devcontainer/setup.sh`, run `pnpm test:all`, check `gh --version`, `codex --version`, and `claude --version`. Test private authentication for both agents without committing login state. Codespaces quota, org permissions, network access, and eligible AI plans are external prerequisites. Agent packages are installed at their current release, so record working versions before class or pin tested versions for your event.
 5. Configure a static host from `deployment.md`. GitHub Pages can deploy main; Netlify can provide main plus PR previews. Verify a practice PR preview and show the production URL on the projector. No hosting account or live deployment was provisioned by these files.
 6. Seed issues: `pnpm issues:seed --repo=ORG/REPO` previews 28 titles; after reviewing, `pnpm issues:seed --repo=ORG/REPO --apply` creates them with `gh`. Sign in to `gh` first and verify the target. Existing exact-title issues are skipped, including closed issues. A renamed issue may be duplicated; inspect the list before rerunning. Optional difficulty labels can be added in GitHub after import. Do not run with an untrusted repository argument.
@@ -24,21 +24,21 @@ Start with instructor plus peer approval. Later explain the transfer of ownershi
 
 These pairs are not guaranteed conflicts. They are legitimate overlapping decisions; do not force breakage. The student descriptions identify relevant shared areas without listing every paired issue.
 
-| Issues | Likely tension | Facilitation prompt |
-| --- | --- | --- |
-| 01 + 02 | Both edit legend layout/copy; precision competes with density | What must someone understand at a glance? |
-| 02 + 12 | New palette/thresholds can invalidate legend labels | Who owns the scale contract and the evidence? |
-| 03 + 14 | Map hover styling and tooltip behavior/focus can conflict | Which state is hover and which is selection? |
-| 04 + 17 | Compact number conventions may obscure exact vote-count chart labels | Where do readers need exact values? |
-| 05 + 09 | Mobile selection handoff may move focus away from picker | Who controls focus after selection? |
-| 06 + 26 | Initial county defaults can overwrite a URL selection | Which source of state wins on load and history? |
-| 07 + 13 | Ranking expansion changes the claim and headline | What is a county comparison versus a race? |
-| 11 + 18 | Search focus and map keyboard state may compete | Can readers predict where the next key goes? |
+| Issues  | Likely tension                                                                   | Facilitation prompt                                   |
+| ------- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 01 + 02 | Both edit legend layout/copy; precision competes with density                    | What must someone understand at a glance?             |
+| 02 + 12 | New palette/thresholds can invalidate legend labels                              | Who owns the scale contract and the evidence?         |
+| 03 + 14 | Map hover styling and tooltip behavior/focus can conflict                        | Which state is hover and which is selection?          |
+| 04 + 17 | Compact number conventions may obscure exact vote-count chart labels             | Where do readers need exact values?                   |
+| 05 + 09 | Mobile selection handoff may move focus away from picker                         | Who controls focus after selection?                   |
+| 06 + 26 | Initial county defaults can overwrite a URL selection                            | Which source of state wins on load and history?       |
+| 07 + 13 | Ranking expansion changes the claim and headline                                 | What is a county comparison versus a race?            |
+| 11 + 18 | Search focus and map keyboard state may compete                                  | Can readers predict where the next key goes?          |
 | 15 + 21 | A refreshed snapshot may introduce missing data or new reporting inconsistencies | Does absence mean unavailable, zero, or not reported? |
-| 16 + 25 | Ballot-line UI may assume fixed candidate identities | Which metadata belongs to the contest? |
-| 19 + 23 | Label placement depends on map geometry and inset scale | Can the two PRs share a projection interface? |
-| 20 + 27 | Distribution denominators can change under filters | What population does each view summarize? |
-| 21 + 22 | Historical change can mix snapshots or partial totals | Is the comparison supported by comparable evidence? |
+| 16 + 25 | Ballot-line UI may assume fixed candidate identities                             | Which metadata belongs to the contest?                |
+| 19 + 23 | Label placement depends on map geometry and inset scale                          | Can the two PRs share a projection interface?         |
+| 20 + 27 | Distribution denominators can change under filters                               | What population does each view summarize?             |
+| 21 + 22 | Historical change can mix snapshots or partial totals                            | Is the comparison supported by comparable evidence?   |
 
 The shared color, formatter, and calculation modules make independent-looking feature work consequential. Ask reviewers to use architecture.md to trace those relationships. Avoid announcing every conflict in advance; let participants discover normal coordination needs.
 

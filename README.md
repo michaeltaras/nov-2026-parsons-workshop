@@ -1,4 +1,4 @@
-# The 2026 Election Atlas
+# 2026 New York Governor Election Results
 
 An interactive New York election explorer for the Parsons data visualization club. Explore how counties contribute to the statewide margin, compare reported results with certified 2022 governor results, and switch from land area to circles sized by candidate votes. All three views share one county selection.
 
@@ -6,7 +6,7 @@ An interactive New York election explorer for the Parsons data visualization clu
 
 ## Open in Codespaces
 
-On your GitHub repository, choose **Code → Codespaces → Create codespace on main**. Wait for the container setup to finish. It installs Node 22, pnpm, GitHub CLI, Codex CLI, Claude Code, dependencies, and Chromium. Requires a GitHub account with repository access and available Codespaces quota. The instructor must first upload this project to GitHub; see [instructor setup](docs/instructor-guide.md).
+Open [the workshop repository](https://github.com/michaeltaras/nov-2026-parsons-workshop), then choose **Code → Codespaces → Create codespace on main**. Wait for the container setup to finish. It installs Node 22, pnpm, GitHub CLI, Codex CLI, Claude Code, dependencies, and Chromium. Requires a GitHub account with repository access and available Codespaces quota. See [instructor setup](docs/instructor-guide.md) for access and review requirements.
 
 ## Start an agent
 
@@ -18,11 +18,13 @@ In the terminal run `codex` or `claude`, then follow its sign-in instructions us
 pnpm dev
 ```
 
-Open forwarded port **5173**. For local development, install Node 22 and pnpm 9.15.9, then run `pnpm install --frozen-lockfile` first. The app runs entirely in the browser with bundled local data; no API or account is required. Installation and agent use require internet. `pnpm build` produces static files in `dist/`; `pnpm preview` previews them.
+Open forwarded port **5173**. For local development, install Node 22.23.4 (see `.tool-versions`) and pnpm 9.15.9, then run `pnpm install --frozen-lockfile` first. The app runs entirely in the browser with bundled local data; no API or account is required. Installation and agent use require internet. `pnpm build` produces static files in `dist/`; `pnpm preview` previews them.
 
-## Run tests
+## Code standards and tests
 
 ```bash
+pnpm lint                 # Oxlint, no warnings allowed
+pnpm format:check         # Prettier formatting check
 pnpm test                 # domain and component tests
 pnpm build                # type check and production build
 pnpm exec playwright install chromium  # once locally; container does this for you
@@ -30,11 +32,13 @@ pnpm test:e2e             # desktop and mobile browser tests
 pnpm test:all             # all of the above checks
 ```
 
+Use `pnpm lint:fix` for safe automatic lint fixes and `pnpm format` to format files. Oxlint checks JavaScript/TypeScript correctness, React hooks, JSX accessibility, unused code, explicit types, braces, and import consistency; strict TypeScript checks run during the build. The rules live in `.oxlintrc.json`; formatting lives in `.prettierrc.json` and `.editorconfig`. Raw and generated election data are excluded from formatting. Python data preparation remains covered by the reconciliation tests. CI runs lint, formatting, tests, and the build. Codespaces includes the Oxlint and Prettier editor extensions with formatting on save.
+
 `pnpm data:prepare` reproducibly rebuilds normalized JSON and New York GeoJSON from committed raw files, using only Python 3's standard library. No network request is made. [Architecture](docs/architecture.md) explains where changes propagate.
 
 ## Contribute a PR
 
-1. Choose and claim an issue; discuss unclear product decisions with another participant.
+1. Choose and claim [a workshop issue](https://github.com/michaeltaras/nov-2026-parsons-workshop/issues); discuss unclear product decisions with another participant.
 2. `git switch -c your-name/short-description`
 3. Ask your agent to read `AGENTS.md`, inspect the issue, and make a focused change.
 4. Review the diff yourself. Run relevant tests and try another affected view.

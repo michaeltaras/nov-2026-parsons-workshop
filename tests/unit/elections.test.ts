@@ -106,10 +106,11 @@ describe("Candidate votes and fusion ballot lines", () => {
     expect(margin(county)).not.toBeNull();
   });
   it("rejects negative and fractional vote counts", () => {
-    for (const value of [-1, 1.5, NaN])
+    for (const value of [-1, 1.5, NaN]) {
       expect(() =>
         aggregateVotes([{ candidate: "a", party: "", votes: value }]),
       ).toThrow("nonnegative integers");
+    }
   });
 });
 describe("Honest denominators and missing data", () => {
@@ -152,11 +153,12 @@ describe("Geographic joins and shared presentation", () => {
   it("joins exactly one result to each unique Census county FIPS", () => {
     expect(geography.features).toHaveLength(62);
     expect(new Set(counties.map((c) => c.fips)).size).toBe(62);
-    for (const feature of geography.features)
+    for (const feature of geography.features) {
       expect(
         joinCounty(feature.properties.fips)?.name,
         `Join failed for ${feature.properties.name}`,
       ).toBe(feature.properties.name);
+    }
     expect(joinCounty("99999")).toBeUndefined();
   });
   it("formats values consistently without implying unavailable data is zero", () => {

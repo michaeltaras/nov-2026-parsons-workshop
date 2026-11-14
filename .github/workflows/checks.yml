@@ -15,12 +15,14 @@ jobs:
           version: 9.15.9
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .tool-versions
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: python3 scripts/prepare-data.py
       - name: Check committed data is reproducible
         run: git diff --exit-code -- data/processed data/geography
+      - run: pnpm lint
+      - run: pnpm format:check
       - run: pnpm test
       - run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium

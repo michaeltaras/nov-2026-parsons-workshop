@@ -1,0 +1,8 @@
+# Preserve raw sources and the exact output of data:prepare.
+/data/
+pnpm-lock.yaml
+node_modules/
+dist/
+playwright-report/
+test-results/
+*.tsbuildinfo

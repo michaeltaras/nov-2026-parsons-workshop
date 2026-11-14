@@ -22,8 +22,9 @@ export function netVotes(
   republican = "blakeman",
 ): number | null {
   const totals = aggregateVotes(result.ballotLines);
-  if (totals.hochul === undefined || totals[republican] === undefined)
+  if (totals.hochul === undefined || totals[republican] === undefined) {
     return null;
+  }
   return totals.hochul - totals[republican];
 }
 
@@ -33,9 +34,13 @@ export function summarizeContributions(results: Result[]) {
   let missingCount = 0;
   for (const result of results) {
     const net = netVotes(result);
-    if (net === null) missingCount++;
-    else if (net > 0) towardHochul += net;
-    else towardBlakeman += Math.abs(net);
+    if (net === null) {
+      missingCount++;
+    } else if (net > 0) {
+      towardHochul += net;
+    } else {
+      towardBlakeman += Math.abs(net);
+    }
   }
   return {
     towardHochul,
@@ -51,7 +56,9 @@ export function compareCounty(
   current: County,
   previous = counties2022.find((county) => county.fips === current.fips),
 ) {
-  if (!previous) return null;
+  if (!previous) {
+    return null;
+  }
   const margin2022 = margin(previous, "zeldin");
   const margin2026 = margin(current, "blakeman");
   const net2022 = netVotes(previous, "zeldin");
@@ -61,8 +68,9 @@ export function compareCounty(
     margin2026 === null ||
     net2022 === null ||
     net2026 === null
-  )
+  ) {
     return null;
+  }
   const votes2022 = candidateVoteTotal(previous);
   const votes2026 = candidateVoteTotal(current);
   return {

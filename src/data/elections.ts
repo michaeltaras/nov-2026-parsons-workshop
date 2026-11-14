@@ -40,8 +40,9 @@ export const candidates = {
 export function aggregateVotes(lines: BallotLine[]): Record<string, number> {
   const totals: Record<string, number> = {};
   for (const line of lines) {
-    if (!Number.isInteger(line.votes) || line.votes < 0)
+    if (!Number.isInteger(line.votes) || line.votes < 0) {
       throw new Error("Votes must be nonnegative integers");
+    }
     totals[line.candidate] = (totals[line.candidate] ?? 0) + line.votes;
   }
   return totals;
@@ -55,8 +56,9 @@ export function share(votes: number, total: number): number | null {
 // Signed Democratic minus Republican share, in percentage points of all candidate votes.
 export function margin(result: Result, republican = "blakeman"): number | null {
   const totals = aggregateVotes(result.ballotLines);
-  if (totals.hochul === undefined || totals[republican] === undefined)
+  if (totals.hochul === undefined || totals[republican] === undefined) {
     return null;
+  }
   return share(totals.hochul - totals[republican], candidateVoteTotal(result));
 }
 export function combineResults(results: Result[]): Result {

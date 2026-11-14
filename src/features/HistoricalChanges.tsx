@@ -39,7 +39,9 @@ export default function HistoricalChanges({
     const selected = comparisons.find(
       (item) => item.county.fips === county.fips,
     );
-    if (selected) visible.push(selected);
+    if (selected) {
+      visible.push(selected);
+    }
   }
   const selected = compareCounty(county);
   const statewideChange =
