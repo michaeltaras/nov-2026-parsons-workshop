@@ -7,7 +7,7 @@ import {
   type County,
 } from "../data/elections";
 import { electionColor, democratic, republican } from "../utils/electionColors";
-import { marginLabel, percent } from "../utils/formatNumbers";
+
 export default function Comparisons({
   county,
   onSelect,
