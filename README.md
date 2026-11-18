@@ -49,5 +49,3 @@ Use `pnpm lint:fix` for safe automatic lint fixes and `pnpm format` to format fi
 7. Request one peer review and the instructor review. Respond to feedback, then merge when checks and required reviews pass.
 
 Your branch and PR are shared work: coordinate when touching colors, calculations, selection, or layout. [Workshop guide](docs/workshop-guide.md) · [Backlog: 28 issues](docs/workshop-issues.md) · [Collaboration](docs/collaboration.md) · [Product brief](docs/product.md).
-
-The workshop thesis: AI lowers the cost of producing code. Communication, judgment, review, and shared ownership still belong to us.
