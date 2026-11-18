@@ -8,7 +8,7 @@ An interactive New York election explorer for the Parsons data visualization clu
 
 ## Open in Codespaces
 
-Open [the workshop repository](https://github.com/michaeltaras/nov-2026-parsons-workshop), then choose **Code → Codespaces → Create codespace on main**. Wait for the container setup to finish. It installs Node 22, pnpm, GitHub CLI, Codex CLI, Claude Code, dependencies, and Chromium. Requires a GitHub account with repository access and available Codespaces quota. See [instructor setup](docs/instructor-guide.md) for access and review requirements.
+Open [the workshop repository](https://github.com/michaeltaras/nov-2026-parsons-workshop), then choose **Code → Codespaces → Create codespace on main**. Wait for the container setup to finish. It installs Node 22, pnpm, GitHub CLI, Codex CLI, Claude Code, dependencies, and Chromium. Requires a GitHub account with repository access and available Codespaces quota. See [collaboration and review](docs/collaboration.md) for access and review requirements.
 
 ## Start an agent
 
