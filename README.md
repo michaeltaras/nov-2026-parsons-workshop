@@ -44,8 +44,7 @@ Use `pnpm lint:fix` for safe automatic lint fixes and `pnpm format` to format fi
 2. `git switch -c your-name/short-description`
 3. Ask your agent to read `AGENTS.md`, inspect the issue, and make a focused change.
 4. Review the diff yourself. Run relevant tests and try another affected view.
-5. `git add <changed-files>` then `git commit -m "Describe the change"`
-6. `git push -u origin HEAD` then `gh pr create --fill`
-7. Request one peer review and the instructor review. Respond to feedback, then merge when checks and required reviews pass.
+5. Ask your agent to push the branch and create a PR.  Please fill in the PR manually rather than asking the agent to do it. 
+6. Request one peer review and the instructor review. Respond to feedback, then merge when checks and required reviews pass.
 
 Your branch and PR are shared work: coordinate when touching colors, calculations, selection, or layout. [Workshop guide](docs/workshop-guide.md) · [Backlog: 28 issues](docs/workshop-issues.md) · [Collaboration](docs/collaboration.md) · [Product brief](docs/product.md).
