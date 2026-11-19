@@ -12,7 +12,7 @@ Open [the workshop repository](https://github.com/michaeltaras/nov-2026-parsons-
 
 ## Start an agent
 
-In the terminal run `codex` or `claude`, then follow its sign-in instructions using your own account. An eligible plan or billing arrangement is required; a Codespace does not include AI access. For Codex on a remote terminal, `codex login --device-auth` can be used if browser login is unavailable and your account permits it. Never paste credentials into a PR or commit login files. If agent access fails, pair with someone or edit directly; the app needs no AI credentials. [Codex CLI](https://learn.chatgpt.com/docs/codex/cli) · [Claude setup](https://code.claude.com/docs/en/setup).
+In the terminal run `codex` or `claude`, then follow its sign-in instructions using your own account. An eligible plan or billing arrangement is required; a Codespace does not include AI access. For Codex on a remote terminal, `codex login --device-auth` can be used if browser login is unavailable and your account permits it. Never paste credentials into a PR or commit login files.
 
 ## Run the application
 
