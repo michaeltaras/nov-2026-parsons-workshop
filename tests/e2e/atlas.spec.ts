@@ -23,6 +23,53 @@ test("county map, details, and comparison work at this viewport", async ({
     ),
   ).toBeTruthy();
 });
+test("county outlines follow hover and keyboard focus while preserving selection", async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto("/");
+  const map = page.getByLabel(/Interactive map of 62/);
+  const albany = map.getByRole("button", { name: /^Albany County,/ });
+  const outlines = map.locator(".county-outlines");
+  const labels = page.getByRole("button", { name: "County labels" });
+
+  for (const mode of ["County map", "Vote circles"]) {
+    await page.getByRole("button", { name: mode, exact: true }).click();
+    await page.getByLabel("Jump to a county").selectOption("36119");
+    const westchester = map.getByRole("button", {
+      name: /^Westchester County,/,
+    });
+    const albanyShape = await albany.locator("path, circle").getAttribute("id");
+    const albanyOutline = outlines.locator(`use[href="#${albanyShape}"]`);
+    await expect(outlines).toHaveCSS("pointer-events", "none");
+
+    if (!isMobile) {
+      await albany.hover();
+      await expect(albanyOutline).toHaveCSS("stroke-width", "3px");
+      await expect(westchester).toHaveAttribute("aria-pressed", "true");
+      await labels.hover();
+      await expect(albanyOutline).toHaveCount(0);
+    }
+
+    await albany.focus();
+    await expect(albanyOutline).toHaveCSS("stroke-width", "3px");
+    await expect(westchester).toHaveAttribute("aria-pressed", "true");
+    await page.keyboard.press("Enter");
+    await expect(albany).toHaveAttribute("aria-pressed", "true");
+    await page.keyboard.press("Tab");
+    const nextCounty = map.locator(".county:focus");
+    await expect(nextCounty).toHaveAttribute("aria-pressed", "false");
+    await expect(albanyOutline).toHaveCSS("stroke-width", "2.4px");
+    await page.keyboard.press("Space");
+    await expect(nextCounty).toHaveAttribute("aria-pressed", "true");
+    await labels.focus();
+    await expect(outlines.locator("use")).toHaveCount(1);
+    await expect(outlines.locator("use")).toHaveCSS("stroke-width", "2.4px");
+    await albany.click();
+    await expect(albany).toHaveAttribute("aria-pressed", "true");
+  }
+});
+
 test("2026 snapshot is honest, and the app makes no external runtime requests", async ({
   page,
 }) => {
