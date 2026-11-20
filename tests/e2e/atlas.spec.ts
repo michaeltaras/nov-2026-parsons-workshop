@@ -23,6 +23,33 @@ test("county map, details, and comparison work at this viewport", async ({
     ),
   ).toBeTruthy();
 });
+test("county search supports partial names, borough aliases, and empty results", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const search = page.getByLabel("Search for a county or borough");
+
+  await search.fill("  alb");
+  await page
+    .getByRole("button", { name: "Albany County", exact: true })
+    .click();
+  await expect(page.getByLabel("Jump to a county")).toHaveValue("36001");
+  await expect(
+    page.getByRole("heading", { name: "Albany County", level: 2 }),
+  ).toBeVisible();
+
+  await search.fill("brooklyn");
+  await page
+    .getByRole("button", { name: "Kings County (Brooklyn)", exact: true })
+    .click();
+  await expect(page.getByLabel("Jump to a county")).toHaveValue("36047");
+  await expect(
+    page.getByRole("heading", { name: "Kings County", level: 2 }),
+  ).toBeVisible();
+
+  await search.fill("not-a-county");
+  await expect(page.getByText("No counties found")).toBeVisible();
+});
 test("2026 snapshot is honest, and the app makes no external runtime requests", async ({
   page,
 }) => {

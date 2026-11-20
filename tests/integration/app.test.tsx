@@ -5,6 +5,32 @@ import App from "../../src/App";
 import { colors, electionColor } from "../../src/utils/electionColors";
 import { counties, margin } from "../../src/data/elections";
 describe("Shared product behavior", () => {
+  it("searches county names and borough aliases and updates linked views", () => {
+    render(<App />);
+    const search = screen.getByLabelText("Search for a county or borough");
+
+    fireEvent.change(search, { target: { value: "  alb" } });
+    fireEvent.click(screen.getByRole("button", { name: "Albany County" }));
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36001");
+    expect(
+      screen.getByRole("heading", { name: "Albany County", level: 2 }),
+    ).toBeInTheDocument();
+
+    fireEvent.change(search, { target: { value: "brook" } });
+    expect(
+      screen.getByRole("button", { name: "Kings County (Brooklyn)" }),
+    ).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "Kings County (Brooklyn)" }),
+    );
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36047");
+    expect(
+      screen.getByRole("heading", { name: "Kings County", level: 2 }),
+    ).toBeInTheDocument();
+
+    fireEvent.change(search, { target: { value: "not-a-county" } });
+    expect(screen.getByText("No counties found")).toBeInTheDocument();
+  });
   it("selects a county from the map and updates details, chart, and county control", () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: /^Albany County,/ }));

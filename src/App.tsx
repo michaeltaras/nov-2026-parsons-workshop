@@ -6,9 +6,37 @@ import StatewideResults from "./features/StatewideResults";
 import Comparisons from "./features/Comparisons";
 import MarginContributions from "./features/MarginContributions";
 import HistoricalChanges from "./features/HistoricalChanges";
+
+const boroughAliases: Record<string, string> = {
+  "36061": "Manhattan",
+  "36047": "Brooklyn",
+  "36085": "Staten Island",
+  "36005": "Bronx",
+  "36081": "Queens",
+};
+
 export default function App() {
   const [selected, setSelected] = useState("36061");
+  const [countyQuery, setCountyQuery] = useState("");
   const county = counties.find((item) => item.fips === selected)!;
+  const normalizedQuery = countyQuery.trim().toLowerCase();
+  const countyResults = normalizedQuery
+    ? counties.filter((item) => {
+        const officialName = `${item.name} County`.toLowerCase();
+        const boroughAlias = boroughAliases[item.fips]?.toLowerCase();
+        return (
+          officialName.includes(normalizedQuery) ||
+          item.name.toLowerCase().includes(normalizedQuery) ||
+          boroughAlias?.includes(normalizedQuery)
+        );
+      })
+    : [];
+
+  function selectCounty(fips: string) {
+    setSelected(fips);
+    setCountyQuery("");
+  }
+
   return (
     <>
       <a className="skip-link" href="#explore">
@@ -66,18 +94,91 @@ export default function App() {
           <CountyDetails county={county} />
         </div>
         <div className="county-picker">
-          <label htmlFor="county-select">Jump to a county</label>
-          <select
-            id="county-select"
-            value={selected}
-            onChange={(event) => setSelected(event.target.value)}
-          >
-            {counties.map((item) => (
-              <option key={item.fips} value={item.fips}>
-                {item.name}
-              </option>
-            ))}
-          </select>
+          <div className="county-picker-row">
+            <div className="county-search">
+              <label htmlFor="county-search">
+                Search for a county or borough
+              </label>
+              <input
+                id="county-search"
+                type="search"
+                value={countyQuery}
+                placeholder="Try Albany or Brooklyn"
+                aria-describedby="county-search-feedback"
+                onChange={(event) => setCountyQuery(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" && countyResults.length > 0) {
+                    event.preventDefault();
+                    selectCounty(countyResults[0].fips);
+                  }
+                  if (event.key === "ArrowDown" && countyResults.length > 0) {
+                    event.preventDefault();
+                    document
+                      .querySelector<HTMLButtonElement>(
+                        ".county-search-results button",
+                      )
+                      ?.focus();
+                  }
+                }}
+              />
+              {normalizedQuery && (
+                <div id="county-search-feedback">
+                  {countyResults.length === 0 ? (
+                    <p className="county-search-empty">No counties found</p>
+                  ) : (
+                    <ul
+                      className="county-search-results"
+                      aria-label="County search results"
+                    >
+                      {countyResults.map((item) => {
+                        const boroughAlias = boroughAliases[item.fips];
+                        const aliasMatches =
+                          boroughAlias &&
+                          boroughAlias
+                            .toLowerCase()
+                            .includes(normalizedQuery) &&
+                          boroughAlias.toLowerCase() !==
+                            item.name.toLowerCase();
+                        return (
+                          <li key={item.fips}>
+                            <button
+                              type="button"
+                              onClick={() => selectCounty(item.fips)}
+                              onKeyDown={(event) => {
+                                if (event.key === "Escape") {
+                                  event.preventDefault();
+                                  document
+                                    .getElementById("county-search")
+                                    ?.focus();
+                                }
+                              }}
+                            >
+                              {item.name} County
+                              {aliasMatches ? ` (${boroughAlias})` : ""}
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="county-select">
+              <label htmlFor="county-select">Jump to a county</label>
+              <select
+                id="county-select"
+                value={selected}
+                onChange={(event) => setSelected(event.target.value)}
+              >
+                {counties.map((item) => (
+                  <option key={item.fips} value={item.fips}>
+                    {item.name} County
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
           <span>62 counties</span>
         </div>
         <MarginContributions county={county} onSelect={setSelected} />
