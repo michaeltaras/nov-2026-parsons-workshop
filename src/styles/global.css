@@ -363,16 +363,33 @@ h1 {
   stroke-width: 1;
   cursor: pointer;
 }
-.county:hover,
 .county:focus {
-  stroke: #111;
-  stroke-width: 2;
+  /* The focused county is outlined in .county-outlines instead. */
   outline: none;
 }
-.county.selected {
+/* Selected and hovered/focused outlines sit above all counties so neighboring
+   white borders cannot cover them. The halo keeps the active outline distinct
+   from the selected one and visible against dark fills. */
+.county-outlines {
+  pointer-events: none;
+  fill: none;
+  stroke-linejoin: round;
+}
+.county-outlines path,
+.county-outlines circle {
+  vector-effect: non-scaling-stroke;
+}
+.selected-outline {
   stroke: #111;
-  stroke-width: 2.4;
-  paint-order: stroke;
+  stroke-width: 2.5;
+}
+.active-outline-halo {
+  stroke: #fff;
+  stroke-width: 4.5;
+}
+.active-outline {
+  stroke: #111;
+  stroke-width: 2;
 }
 .map-labels {
   font-size: 8px;
