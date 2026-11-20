@@ -194,4 +194,47 @@ describe("Connected editorial analysis", () => {
       ),
     ).toBeInTheDocument();
   });
+  it("NYC close-up shares selection, colors, and one keyboard tab stop", () => {
+    render(<App />);
+    const toggle = screen.getByRole("button", { name: /NYC close-up/ });
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+    const inset = screen.getByRole("toolbar", {
+      name: "New York City, enlarged",
+    });
+    const boroughs = within(inset).getAllByRole("button");
+    expect(boroughs).toHaveLength(5);
+    // Only one borough is in the Tab order; arrows move between the rest.
+    expect(boroughs.filter((item) => item.tabIndex === 0)).toHaveLength(1);
+    const brooklyn = within(inset).getByRole("button", {
+      name: /^Brooklyn \(Kings County\),/,
+    });
+    const kings = counties.find((county) => county.fips === "36047")!;
+    expect(brooklyn).toHaveAttribute("fill", electionColor(margin(kings)));
+    fireEvent.click(brooklyn);
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36047");
+    expect(
+      screen.getByRole("button", { name: /^Kings County,/ }),
+    ).toHaveAttribute("aria-pressed", "true");
+    expect(brooklyn).toHaveAttribute("aria-pressed", "true");
+    // Moving focus does not select; Enter does.
+    brooklyn.focus();
+    fireEvent.keyDown(brooklyn, { key: "ArrowUp" });
+    const queens = within(inset).getByRole("button", { name: /^Queens/ });
+    expect(queens).toHaveFocus();
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36047");
+    fireEvent.keyDown(queens, { key: "Enter" });
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36081");
+    // Selecting elsewhere is reflected in the inset.
+    fireEvent.click(screen.getByRole("button", { name: /^Bronx County,/ }));
+    expect(
+      within(inset).getByRole("button", { name: /^Bronx \(Bronx County\),/ }),
+    ).toHaveAttribute("aria-pressed", "true");
+    // The close-up belongs to County map mode only.
+    fireEvent.click(screen.getByRole("button", { name: "Vote circles" }));
+    expect(
+      screen.queryByRole("button", { name: /NYC close-up/ }),
+    ).not.toBeInTheDocument();
+  });
 });
