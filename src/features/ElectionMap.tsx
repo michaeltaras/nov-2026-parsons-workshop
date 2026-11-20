@@ -22,6 +22,7 @@ export default function ElectionMap({
   onSelect: (fips: string) => void;
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [focused, setFocused] = useState<string | null>(null);
   const [labels, setLabels] = useState(false);
   const [mode, setMode] = useState<"land" | "votes">("land");
   const path = useMemo(
@@ -53,7 +54,7 @@ export default function ElectionMap({
     });
     return createVoteCircleLayout(anchors).sort((a, b) => b.votes - a.votes);
   }, [path]);
-  const active = joinCounty(hovered ?? selected);
+  const active = joinCounty(hovered ?? focused ?? selected);
   const shapes =
     mode === "land"
       ? geography.features.map((feature) => ({
@@ -62,6 +63,18 @@ export default function ElectionMap({
           circle: null,
         }))
       : circles.map((circle) => ({ fips: circle.fips, feature: null, circle }));
+  // Outlines are drawn in a layer above every county. Inside the county layer,
+  // later neighbors would paint their white borders over part of the outline.
+  const outline = (fips: string, className: string) => {
+    const shape = shapes.find((item) => item.fips === fips);
+    if (shape?.circle) {
+      const { x, y, radius } = shape.circle;
+      return <circle className={className} cx={x} cy={y} r={radius} />;
+    }
+    return shape?.feature ? (
+      <path className={className} d={path(shape.feature) ?? ""} />
+    ) : null;
+  };
 
   return (
     <section className="map-panel" aria-labelledby="map-title">
@@ -138,8 +151,8 @@ export default function ElectionMap({
                   aria-pressed={isSelected}
                   onMouseEnter={() => setHovered(fips)}
                   onMouseLeave={() => setHovered(null)}
-                  onFocus={() => setHovered(fips)}
-                  onBlur={() => setHovered(null)}
+                  onFocus={() => setFocused(fips)}
+                  onBlur={() => setFocused(null)}
                   onClick={() => onSelect(fips)}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
@@ -165,6 +178,19 @@ export default function ElectionMap({
                 </g>
               );
             })}
+          </g>
+          <g className="county-outlines" aria-hidden="true">
+            {outline(selected, "selected-outline")}
+            {/* Pointer and keyboard can rest on different counties. */}
+            {[...new Set([focused, hovered])].map(
+              (fips) =>
+                fips && (
+                  <g key={fips}>
+                    {outline(fips, "active-outline-halo")}
+                    {outline(fips, "active-outline")}
+                  </g>
+                ),
+            )}
           </g>
           {labels && (
             <g className="map-labels" aria-hidden="true">

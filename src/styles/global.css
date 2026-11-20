@@ -363,16 +363,33 @@ h1 {
   stroke-width: 1;
   cursor: pointer;
 }
-.county:hover,
 .county:focus {
-  stroke: #111;
-  stroke-width: 2;
+  /* The focused county is outlined in .county-outlines instead. */
   outline: none;
 }
-.county.selected {
+/* Selected and hovered/focused outlines sit above all counties so neighboring
+   white borders cannot cover them. The halo keeps the active outline distinct
+   from the selected one and visible against dark fills. */
+.county-outlines {
+  pointer-events: none;
+  fill: none;
+  stroke-linejoin: round;
+}
+.county-outlines path,
+.county-outlines circle {
+  vector-effect: non-scaling-stroke;
+}
+.selected-outline {
   stroke: #111;
-  stroke-width: 2.4;
-  paint-order: stroke;
+  stroke-width: 2.5;
+}
+.active-outline-halo {
+  stroke: #fff;
+  stroke-width: 4.5;
+}
+.active-outline {
+  stroke: #111;
+  stroke-width: 2;
 }
 .map-labels {
   font-size: 8px;
@@ -499,33 +516,68 @@ h1 {
 }
 .legend {
   width: 330px;
-  max-width: 90%;
+  max-width: 95%;
   margin: 18px auto 12px;
-  font-size: 10px;
+  font-size: 11px;
   color: #555;
 }
 .legend-labels {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
+  color: #222;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.legend-scale {
+  position: relative;
 }
 .swatches {
   display: flex;
-  height: 10px;
+  height: 14px;
   gap: 1px;
+  border: 1px solid #777;
 }
 .swatches span {
   flex: 1;
 }
+.legend-zero-marker {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  left: 50%;
+  width: 2px;
+  background: #111;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 1px #fff;
+}
 .legend-ticks {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  align-items: center;
+  margin-top: 7px;
+  color: #222;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.legend-zero-tick {
+  min-width: 24px;
+  padding: 3px 4px;
+  border: 1px solid #111;
+  border-radius: 999px;
+  background: #fff;
+  text-align: center;
 }
 .legend p {
   text-align: center;
-  margin-top: 8px;
+  margin-top: 9px;
+  color: #555;
+  font-size: 11px;
+  line-height: 1.4;
 }
 .county-details {
   padding-left: 23px;
@@ -1308,7 +1360,16 @@ footer > a:last-child {
   }
   .legend {
     max-width: 95%;
-    font-size: 9px;
+    font-size: 11px;
+  }
+  .legend-labels {
+    font-size: 12px;
+  }
+  .legend-ticks {
+    font-size: 12px;
+  }
+  .legend p {
+    font-size: 11px;
   }
   .circle-size-legend {
     font-size: 10px;
