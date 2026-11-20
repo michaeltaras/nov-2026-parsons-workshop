@@ -6,7 +6,13 @@ import {
   margin,
   type County,
 } from "../data/elections";
-import { compareCounty, netVotes, statewide2022 } from "../data/analysis";
+import {
+  compareCounty,
+  netVotes,
+  statewide2022,
+  summarizeNetChange,
+} from "../data/analysis";
+import NetChangeBreakdown from "./NetChangeBreakdown";
 import { democratic, republican } from "../utils/electionColors";
 import {
   changeLabel,
@@ -48,6 +54,7 @@ export default function HistoricalChanges({
     margin(statewide2026)! - margin(statewide2022, "zeldin")!;
   const statewideNetChange =
     netVotes(statewide2026)! - netVotes(statewide2022, "zeldin")!;
+  const breakdown = summarizeNetChange(counties);
   return (
     <section
       className="analysis-section"
@@ -81,6 +88,32 @@ export default function HistoricalChanges({
           <small>Change in statewide net votes (D−R)</small>
           <strong>{signedVotes(statewideNetChange)}</strong>
           <span>change in Hochul votes minus Republican-ticket votes</span>
+        </p>
+      </div>
+      <div className="net-change-breakdown">
+        <h3>Vote shares and vote counts in the net-vote change</h3>
+        <p>
+          Net votes are the D−R share margin multiplied by candidate votes, so
+          they can change because the split changed, because more or fewer
+          candidate votes were counted, or both.
+        </p>
+        <NetChangeBreakdown
+          net2022={breakdown.net2022}
+          net2026={breakdown.net2026}
+          shareEffect={breakdown.shareEffect}
+          volumeEffect={breakdown.volumeEffect}
+        />
+        <p className="fine-print">
+          Positive values add to Hochul’s net-vote advantage. Each county’s
+          change is split using the average of its 2022 and 2026 vote counts and
+          margins, so the two parts add up exactly with no leftover term; the
+          statewide parts are the sum of the{" "}
+          {counties.length - breakdown.missingCount} counties’ parts. Shares
+          include write-ins and exclude blank and void ballots. A change in
+          counted candidate votes is not a turnout or final participation
+          change: the 2026 count is incomplete. This is an arithmetic breakdown,
+          not evidence of why people voted differently or which voters switched
+          parties.
         </p>
       </div>
       <div className="analysis-content">
@@ -204,6 +237,14 @@ export default function HistoricalChanges({
                 <div>
                   <dt>Change in net votes</dt>
                   <dd>{signedVotes(selected.netChange)}</dd>
+                </div>
+                <div>
+                  <dt>From changing vote shares</dt>
+                  <dd>{signedVotes(selected.shareEffect)}</dd>
+                </div>
+                <div>
+                  <dt>From changing vote counts</dt>
+                  <dd>{signedVotes(selected.volumeEffect)}</dd>
                 </div>
               </dl>
               <h4>Candidate votes counted</h4>

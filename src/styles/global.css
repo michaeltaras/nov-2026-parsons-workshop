@@ -1009,6 +1009,61 @@ dd {
   white-space: nowrap;
 }
 
+/* Net-vote change breakdown: a step chart whose values are also in text. */
+.net-change-breakdown {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.net-change-breakdown h3 {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.net-change-breakdown > p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #555;
+  margin-top: 6px;
+  max-width: 70ch;
+}
+.net-steps {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 12px;
+}
+.net-steps li {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 100px;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.net-steps li.total {
+  font-weight: 700;
+}
+.net-step-label small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.net-step-track {
+  position: relative;
+  height: 16px;
+}
+.net-step-track i {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  min-width: 1px;
+}
+.net-steps strong {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Additional result tables and source notes. */
 .supporting-grid {
   display: grid;
@@ -1490,6 +1545,14 @@ footer > a:last-child {
     grid-template-columns: 1fr;
     gap: 0;
     padding: 0 6px;
+  }
+  .net-steps li {
+    grid-template-columns: 1fr auto;
+    gap: 6px 9px;
+  }
+  .net-step-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
   .history-axis-row > span {
     display: none;
