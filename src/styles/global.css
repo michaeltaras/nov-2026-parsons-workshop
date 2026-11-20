@@ -360,16 +360,17 @@ h1 {
   stroke-width: 1;
   cursor: pointer;
 }
-.county:hover,
 .county:focus {
-  stroke: #111;
-  stroke-width: 2;
   outline: none;
 }
-.county.selected {
+.county-outlines {
+  fill: none;
   stroke: #111;
-  stroke-width: 2.4;
-  paint-order: stroke;
+  stroke-width: 2;
+  pointer-events: none;
+}
+.county-selected-outline {
+  stroke-width: 3;
 }
 .map-labels {
   font-size: 8px;

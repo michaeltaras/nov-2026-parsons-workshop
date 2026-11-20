@@ -115,3 +115,57 @@ test("vote circles, contributions, and historical comparison share selection", a
     ),
   ).toBeTruthy();
 });
+
+for (const mode of ["County map", "Vote circles"]) {
+  test(`${mode} preserves active and selected county outlines`, async ({
+    page,
+    isMobile,
+  }) => {
+    await page.goto("/");
+    const modeButton = page.getByRole("button", { name: mode, exact: true });
+    await modeButton.click();
+    const map = page.getByLabel(/Interactive map of 62/);
+    const counties = map.getByRole("button");
+    const albany = map.getByRole("button", { name: /^Albany County,/ });
+    const outlines = map.locator(".county-outlines use");
+    const selected = map.locator(".county-selected-outline");
+
+    await modeButton.press("Tab");
+    if (mode === "County map") {
+      await page.keyboard.press("Tab");
+    }
+    const first = counties.first();
+    await expect(first).toBeFocused();
+    const firstShape = await first.locator("path, circle").getAttribute("id");
+    await expect(outlines.last()).toHaveAttribute("href", `#${firstShape}`);
+    await expect(first).toHaveAttribute("aria-pressed", "false");
+    await page.keyboard.press("Enter");
+    await expect(first).toHaveAttribute("aria-pressed", "true");
+    await expect(selected).toHaveAttribute("href", `#${firstShape}`);
+
+    await page.keyboard.press("Tab");
+    const second = counties.nth(1);
+    await expect(second).toBeFocused();
+    const secondShape = await second.locator("path, circle").getAttribute("id");
+    await expect(outlines.last()).toHaveAttribute("href", `#${secondShape}`);
+    await expect(selected).toHaveAttribute("href", `#${firstShape}`);
+    await page.keyboard.press("Space");
+    await expect(selected).toHaveAttribute("href", `#${secondShape}`);
+
+    await modeButton.focus();
+    await expect(outlines).toHaveCount(1);
+    if (!isMobile) {
+      await albany.hover();
+      const albanyShape = await albany
+        .locator("path, circle")
+        .getAttribute("id");
+      await expect(outlines.last()).toHaveAttribute("href", `#${albanyShape}`);
+      await expect(selected).toHaveAttribute("href", `#${secondShape}`);
+      await modeButton.hover();
+      await expect(outlines).toHaveCount(1);
+    }
+    await albany.click();
+    await expect(albany).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByLabel("Jump to a county")).toHaveValue("36001");
+  });
+}

@@ -1,7 +1,7 @@
 // SVG county controls require roles because HTML buttons cannot wrap SVG shapes.
 // The map also uses a labeled div to group its representation buttons.
 /* oxlint-disable jsx-a11y/prefer-tag-over-role */
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { geoConicConformal, geoPath } from "d3";
 import {
   candidateVoteTotal,
@@ -22,6 +22,8 @@ export default function ElectionMap({
   onSelect: (fips: string) => void;
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [focused, setFocused] = useState<string | null>(null);
+  const shapeId = useId();
   const [labels, setLabels] = useState(false);
   const [mode, setMode] = useState<"land" | "votes">("land");
   const path = useMemo(
@@ -53,7 +55,7 @@ export default function ElectionMap({
     });
     return createVoteCircleLayout(anchors).sort((a, b) => b.votes - a.votes);
   }, [path]);
-  const active = joinCounty(hovered ?? selected);
+  const active = joinCounty(hovered ?? focused ?? selected);
   const shapes =
     mode === "land"
       ? geography.features.map((feature) => ({
@@ -130,7 +132,7 @@ export default function ElectionMap({
               return (
                 <g
                   key={fips}
-                  className={isSelected ? "county selected" : "county"}
+                  className="county"
                   fill={electionColor(value)}
                   tabIndex={0}
                   role="button"
@@ -138,8 +140,8 @@ export default function ElectionMap({
                   aria-pressed={isSelected}
                   onMouseEnter={() => setHovered(fips)}
                   onMouseLeave={() => setHovered(null)}
-                  onFocus={() => setHovered(fips)}
-                  onBlur={() => setHovered(null)}
+                  onFocus={() => setFocused(fips)}
+                  onBlur={() => setFocused(null)}
                   onClick={() => onSelect(fips)}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
@@ -154,17 +156,33 @@ export default function ElectionMap({
                   </title>
                   {circle ? (
                     <circle
+                      id={`${shapeId}-${fips}`}
                       className="vote-circle"
                       cx={circle.x}
                       cy={circle.y}
                       r={circle.radius}
                     />
                   ) : (
-                    feature && <path d={path(feature) ?? ""} />
+                    feature && (
+                      <path id={`${shapeId}-${fips}`} d={path(feature) ?? ""} />
+                    )
                   )}
                 </g>
               );
             })}
+          </g>
+          {/* Draw outlines above all county fills without changing hit targets or tab order. */}
+          <g className="county-outlines" aria-hidden="true">
+            <use
+              className="county-selected-outline"
+              href={`#${shapeId}-${selected}`}
+            />
+            {focused && focused !== selected && (
+              <use href={`#${shapeId}-${focused}`} />
+            )}
+            {hovered && hovered !== selected && hovered !== focused && (
+              <use href={`#${shapeId}-${hovered}`} />
+            )}
           </g>
           {labels && (
             <g className="map-labels" aria-hidden="true">
