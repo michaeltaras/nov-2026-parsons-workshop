@@ -7,8 +7,11 @@ import {
 import {
   compareCounty,
   counties2022,
+  decomposeNetChange,
   netVotes,
+  statewide2022,
   summarizeContributions,
+  summarizeNetChange,
 } from "../../src/data/analysis";
 import {
   createVoteCircleLayout,
@@ -80,6 +83,73 @@ describe("Same-office historical comparison", () => {
   it("leaves missing baselines and missing named candidates unavailable", () => {
     expect(compareCounty({ ...counties[0], fips: "99999" })).toBeNull();
     expect(compareCounty({ ...counties[0], ballotLines: [] })).toBeNull();
+  });
+});
+
+describe("Net-vote change breakdown", () => {
+  it("attributes a doubled count with the same 60–40 split entirely to volume", () => {
+    expect(
+      decomposeNetChange({ net: 20, votes: 100 }, { net: 40, votes: 200 }),
+    ).toEqual({ netChange: 20, shareEffect: 0, volumeEffect: 20 });
+  });
+  it("attributes a shifted split with the same count entirely to share", () => {
+    // 60–40 becomes 70–30 out of the same 100 candidate votes.
+    expect(
+      decomposeNetChange({ net: 20, votes: 100 }, { net: 40, votes: 100 }),
+    ).toEqual({ netChange: 20, shareEffect: 20, volumeEffect: 0 });
+  });
+  it("splits a combined change with midpoint weights and no leftover term", () => {
+    // 60–40 of 100 becomes 70–30 of 200: margin 0.2 → 0.4, votes 100 → 200.
+    // Share: 0.2 × 150 = 30. Volume: 100 × 0.3 = 30. Net change: 80 − 20 = 60.
+    expect(
+      decomposeNetChange({ net: 20, votes: 100 }, { net: 80, votes: 200 }),
+    ).toEqual({ netChange: 60, shareEffect: 30, volumeEffect: 30 });
+    // Reversing the years reverses every sign: no baseline year is favored.
+    expect(
+      decomposeNetChange({ net: 80, votes: 200 }, { net: 20, votes: 100 }),
+    ).toEqual({ netChange: -60, shareEffect: -30, volumeEffect: -30 });
+  });
+  it("handles a lead changing parties and a falling count", () => {
+    // D +10 of 100 becomes R +27 of 90: margin 0.1 → −0.3, votes 100 → 90.
+    // Share: −0.4 × 95 = −38. Volume: −10 × −0.1 = +1, because fewer votes
+    // at an average Republican margin shrink the Republican advantage.
+    expect(
+      decomposeNetChange({ net: 10, votes: 100 }, { net: -27, votes: 90 }),
+    ).toEqual({ netChange: -37, shareEffect: -38, volumeEffect: 1 });
+  });
+  it("is unavailable without candidate votes in both years", () => {
+    expect(
+      decomposeNetChange({ net: 0, votes: 0 }, { net: 10, votes: 100 }),
+    ).toBeNull();
+  });
+  it("reconciles every county and the statewide sum to the actual net-vote change", () => {
+    for (const county of counties) {
+      const comparison = compareCounty(county)!;
+      expect(comparison.shareEffect + comparison.volumeEffect).toBe(
+        comparison.netChange,
+      );
+    }
+    const albany = compareCounty(
+      counties.find((county) => county.name === "Albany")!,
+    )!;
+    const albanyMargin2022 = 21490 / 116965;
+    const albanyMargin2026 = 36792 / 115976;
+    expect(albany.shareEffect).toBe(
+      Math.round(
+        ((albanyMargin2026 - albanyMargin2022) * (116965 + 115976)) / 2,
+      ),
+    );
+    expect(albany.volumeEffect).toBe(15302 - albany.shareEffect);
+
+    const statewide = summarizeNetChange(counties);
+    expect(statewide.missingCount).toBe(0);
+    expect(statewide.net2022).toBe(netVotes(statewide2022, "zeldin"));
+    expect(statewide.net2026).toBe(netVotes(statewide2026));
+    expect(statewide.netChange).toBe(825667);
+    expect(statewide.shareEffect + statewide.volumeEffect).toBe(825667);
+    // Counties are rounded to whole votes before summing.
+    expect(statewide.shareEffect).toBe(722281);
+    expect(statewide.volumeEffect).toBe(103386);
   });
 });
 
