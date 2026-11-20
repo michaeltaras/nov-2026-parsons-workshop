@@ -8,12 +8,46 @@ test("county map, details, and comparison work at this viewport", async ({
   );
   const map = page.getByLabel(/Interactive map of 62/);
   await expect(map.locator(".county path")).toHaveCount(62);
-  await page.getByRole("button", { name: /^Albany County,/ }).click();
+  const statewide = page.getByRole("region", {
+    name: "2026 statewide results",
+  });
+  await expect(statewide.getByText("Write-ins · 12,721 votes")).toBeVisible();
+
+  await page.getByRole("button", { name: /^Albany County,/ }).press("Enter");
+  const countyComparison = page.locator(".comparison-bars > div").filter({
+    hasText: "Albany County",
+  });
+  await expect(
+    countyComparison.getByText("Write-ins · 426 votes"),
+  ).toBeVisible();
+  const stateComparison = page.locator(".comparison-bars > div").filter({
+    hasText: "New York State",
+  });
+  await expect(
+    stateComparison.getByText("Write-ins · 12,721 votes"),
+  ).toBeVisible();
+  const writeInWidthRatio = await countyComparison
+    .locator(".comparison-track")
+    .evaluate(
+      (track) =>
+        track.lastElementChild!.getBoundingClientRect().width /
+        track.getBoundingClientRect().width,
+    );
+  expect(writeInWidthRatio).toBeCloseTo(426 / 115976, 4);
   await expect(
     page.getByRole("heading", { name: "Albany County", level: 2 }),
   ).toBeVisible();
   await expect(page.getByLabel("Jump to a county")).toHaveValue("36001");
   await page.getByLabel("Jump to a county").selectOption("36119");
+  await expect(
+    page
+      .locator(".comparison-bars > div")
+      .filter({ hasText: "Westchester County" })
+      .getByText("Write-ins · 442 votes"),
+  ).toBeVisible();
+  await expect(
+    stateComparison.getByText("Write-ins · 12,721 votes"),
+  ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Westchester County", level: 2 }),
   ).toBeVisible();

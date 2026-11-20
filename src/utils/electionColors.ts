@@ -1,6 +1,7 @@
 import { scaleThreshold } from "d3";
 export const democratic = "#3168ad";
 export const republican = "#bd414a";
+export const writeIn = "#888888";
 export const missing = "#dddddd";
 export const thresholds = [-30, -15, -5, 0, 5, 15, 30];
 export const colors = [
