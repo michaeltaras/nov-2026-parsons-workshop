@@ -36,13 +36,20 @@ describe("Shared product behavior", () => {
   });
   it("keeps the legend and county map on the same shared color scale", () => {
     render(<App />);
-    const swatches = screen
-      .getByLabelText("County margin color scale")
-      .querySelectorAll(".swatches span");
+    const legend = screen.getByLabelText("County margin color scale");
+    const swatches = legend.querySelectorAll(".swatches span");
     expect(swatches).toHaveLength(colors.length);
     colors.forEach((color, index) =>
       expect(swatches[index]).toHaveStyle({ background: color }),
     );
+    expect(within(legend).getByText("Republican lead")).toBeInTheDocument();
+    expect(within(legend).getByText("Democratic lead")).toBeInTheDocument();
+    expect(
+      within(legend).getByText("0", { selector: ".legend-zero-tick" }),
+    ).toBeInTheDocument();
+    expect(
+      within(legend).getByText("Lead in percentage points · candidate votes"),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /^Albany County,/ }),
     ).toHaveAttribute("fill", electionColor(margin(counties[0])));
