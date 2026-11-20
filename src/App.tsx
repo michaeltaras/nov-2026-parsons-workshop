@@ -6,6 +6,7 @@ import StatewideResults from "./features/StatewideResults";
 import Comparisons from "./features/Comparisons";
 import MarginContributions from "./features/MarginContributions";
 import HistoricalChanges from "./features/HistoricalChanges";
+import MarginDistribution from "./features/MarginDistribution";
 import { formatSourceTimestamp, snapshotAgeLabel } from "./utils/formatNumbers";
 export default function App() {
   const [selected, setSelected] = useState("36061");
@@ -72,6 +73,7 @@ export default function App() {
         </p>
         <nav className="story-navigation" aria-label="Sections">
           <a href="#map-title">County results</a>
+          <a href="#margin-distribution">County margin distribution</a>
           <a href="#contributions">Net-vote contributions</a>
           <a href="#changes">Change since 2022</a>
         </nav>
@@ -97,6 +99,7 @@ export default function App() {
         <MarginContributions county={county} onSelect={setSelected} />
         <HistoricalChanges county={county} onSelect={setSelected} />
         <Comparisons county={county} onSelect={setSelected} />
+        <MarginDistribution selected={selected} onSelect={setSelected} />
         <section className="methodology" id="methodology">
           <div>
             <h2>Data and methodology</h2>

@@ -1171,6 +1171,138 @@ footer > a:last-child {
   top: 10px;
 }
 
+/* Margin distribution chart */
+.margin-distribution {
+  border-top: 1px solid #161616;
+  margin-top: 42px;
+  padding-top: 24px;
+  scroll-margin-top: 20px;
+}
+.margin-distribution .panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 25px;
+}
+.margin-distribution .section-kicker {
+  color: var(--muted);
+  font-weight: 400;
+  margin-bottom: 7px;
+}
+.chart-deck {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.65;
+  color: #444;
+  max-width: 850px;
+  margin: 14px 0 20px;
+}
+.chart-notice {
+  border-left: 3px solid #222;
+  padding: 10px 14px;
+  background: #f7f7f7;
+  color: #444;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 18px 0;
+}
+.margin-plot {
+  display: block;
+  width: 100%;
+  background: #fff;
+}
+.zero-line {
+  stroke: #111;
+  stroke-width: 1.5;
+}
+.axis-line {
+  stroke: #111;
+  stroke-width: 1;
+}
+.tick line {
+  stroke: #111;
+  stroke-width: 1;
+}
+.tick-label {
+  font-size: 10px;
+  fill: #222;
+  font-variant-numeric: tabular-nums;
+}
+.axis-label {
+  font-size: 11px;
+  font-weight: 700;
+}
+.dots .dot {
+  cursor: pointer;
+  transition: stroke-width 0.1s;
+}
+.dots .dot:focus {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+}
+.dots .dot.selected {
+  stroke: #222;
+  stroke-width: 2.5;
+}
+.selection-indicator line {
+  pointer-events: none;
+}
+.selection-label {
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+}
+.missing-margins {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.missing-margins h3 {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.missing-margins p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 12px;
+}
+.missing-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.missing-list button {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #222;
+  cursor: pointer;
+  transition:
+    background 0.1s,
+    border-color 0.1s;
+}
+.missing-list button:hover {
+  background: #f7f7f7;
+  border-color: #111;
+}
+.missing-list button:focus {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+.missing-list button.selected {
+  background: #eee;
+  border-color: #222;
+  box-shadow: inset 3px 0 0 #222;
+}
+.missing-selected {
+  color: #888;
+  font-size: 10px;
+  margin-left: 6px;
+}
+
 @media (max-width: 1000px) {
   .candidate {
     padding-right: 18px;
@@ -1529,5 +1661,25 @@ footer > a:last-child {
   footer p {
     order: 3;
     flex-basis: 100%;
+  }
+  .margin-plot {
+    max-width: 100%;
+  }
+  .chart-deck {
+    font-size: 15px;
+  }
+  .chart-notice {
+    font-size: 11px;
+    padding-left: 11px;
+  }
+  .missing-margins h3 {
+    font-size: 12px;
+  }
+  .missing-margins p {
+    font-size: 11px;
+  }
+  .missing-list li {
+    font-size: 10px;
+    padding: 3px 8px;
   }
 }
