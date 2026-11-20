@@ -7,7 +7,7 @@ test("county map, details, and comparison work at this viewport", async ({
     "New York Governor Election Results",
   );
   const map = page.getByLabel(/Interactive map of 62/);
-  await expect(map.locator("path")).toHaveCount(62);
+  await expect(map.locator(".county path")).toHaveCount(62);
   await page.getByRole("button", { name: /^Albany County,/ }).click();
   await expect(
     page.getByRole("heading", { name: "Albany County", level: 2 }),
