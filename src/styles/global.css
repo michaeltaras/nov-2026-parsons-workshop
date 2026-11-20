@@ -241,10 +241,6 @@ h1 {
   font-weight: 400;
   color: #555;
 }
-.total-votes > span {
-  font-size: 11px;
-  color: var(--muted);
-}
 .vote-strip {
   display: flex;
   height: 7px;
@@ -1087,8 +1083,8 @@ dd {
 .comparison-track > span {
   display: flex;
   align-items: center;
-  min-width: 1px;
-  padding-left: 9px;
+  overflow: hidden;
+  text-indent: 9px;
   font-size: 11px;
   color: #fff;
 }
@@ -1307,8 +1303,7 @@ footer > a:last-child {
   .total-votes em {
     font-size: 14px;
   }
-  .total-votes small,
-  .total-votes > span {
+  .total-votes small {
     font-size: 10px;
   }
   .story-navigation {

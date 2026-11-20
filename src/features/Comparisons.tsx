@@ -4,10 +4,16 @@ import {
   aggregateVotes,
   candidateVoteTotal,
   statewide2026,
+  share,
   type County,
 } from "../data/elections";
-import { electionColor, democratic, republican } from "../utils/electionColors";
-import { marginLabel, percent } from "../utils/formatNumbers";
+import {
+  electionColor,
+  democratic,
+  republican,
+  writeIn,
+} from "../utils/electionColors";
+import { marginLabel, percent, votes } from "../utils/formatNumbers";
 export default function Comparisons({
   county,
   onSelect,
@@ -62,6 +68,10 @@ export default function Comparisons({
           ].map(({ name, result }) => {
             const totals = aggregateVotes(result.ballotLines);
             const total = candidateVoteTotal(result);
+            const hochulShare = share(totals.hochul ?? 0, total);
+            const blakemanShare = share(totals.blakeman ?? 0, total);
+            const writeInVotes = totals["write-in"] ?? 0;
+            const writeInShare = share(writeInVotes, total);
             return (
               <div key={name}>
                 <div className="result-row">
@@ -71,22 +81,30 @@ export default function Comparisons({
                 <div className="comparison-track">
                   <span
                     style={{
-                      width: `${(totals.hochul / total) * 100}%`,
+                      width: `${hochulShare ?? 0}%`,
                       background: democratic,
                     }}
                   >
-                    {percent((totals.hochul / total) * 100)}
+                    {percent(hochulShare)}
                   </span>
                   <span
                     style={{
-                      width: `${(totals.blakeman / total) * 100}%`,
+                      width: `${blakemanShare ?? 0}%`,
                       background: republican,
                     }}
                   >
-                    {percent((totals.blakeman / total) * 100)}
+                    {percent(blakemanShare)}
                   </span>
-                  <span style={{ flex: 1, background: "#888888" }} />
+                  <span
+                    style={{
+                      width: `${writeInShare ?? 0}%`,
+                      background: writeIn,
+                    }}
+                  />
                 </div>
+                <p className="fine-print">
+                  Write-ins · {votes(writeInVotes)} votes
+                </p>
               </div>
             );
           })}
@@ -101,7 +119,7 @@ export default function Comparisons({
             Blakeman
           </span>
           <span>
-            <i style={{ background: "#888888" }} />
+            <i style={{ background: writeIn }} />
             Write-ins
           </span>
         </div>

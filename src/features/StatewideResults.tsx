@@ -6,7 +6,7 @@ import {
   type Result,
 } from "../data/elections";
 import { votes, percent } from "../utils/formatNumbers";
-import { democratic, republican } from "../utils/electionColors";
+import { democratic, republican, writeIn } from "../utils/electionColors";
 export default function StatewideResults({
   result,
   year,
@@ -42,7 +42,6 @@ export default function StatewideResults({
             {(total / 1e6).toFixed(2)}
             <em> million</em>
           </strong>
-          <span>Includes {votes(totals["write-in"] ?? 0)} write-in votes</span>
         </div>
       </div>
       <div className="vote-strip" aria-label="Statewide vote shares">
@@ -56,10 +55,16 @@ export default function StatewideResults({
                   ? democratic
                   : id === challenger
                     ? republican
-                    : "#888888",
+                    : writeIn,
             }}
           />
         ))}
+      </div>
+      <div className="chart-key">
+        <span>
+          <i style={{ background: writeIn }} aria-hidden="true" />
+          Write-ins · {votes(totals["write-in"] ?? 0)} votes
+        </span>
       </div>
       <p className="fine-print">
         Ballot lines are combined by candidate. Shares include write-ins and
