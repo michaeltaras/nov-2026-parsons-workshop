@@ -1209,7 +1209,6 @@ footer > a:last-child {
 .margin-plot {
   display: block;
   width: 100%;
-  max-width: 750px;
   background: #fff;
 }
 .zero-line {

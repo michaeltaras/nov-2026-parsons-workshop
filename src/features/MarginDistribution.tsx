@@ -1,6 +1,7 @@
 import { counties, margin } from "../data/elections";
 import { electionColor, democratic, republican } from "../utils/electionColors";
 import { marginLabel } from "../utils/formatNumbers";
+import { useRef, useLayoutEffect, useState } from "react";
 
 interface CountyMargin {
   fips: string;
@@ -15,6 +16,21 @@ export default function MarginDistribution({
   selected: string;
   onSelect: (fips: string) => void;
 }) {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [chartWidth, setChartWidth] = useState(750);
+
+  useLayoutEffect(() => {
+    const updateWidth = () => {
+      if (svgRef.current && svgRef.current.parentElement) {
+        const parentWidth = svgRef.current.parentElement.clientWidth;
+        setChartWidth(Math.max(parentWidth, 400)); // minimum 400px
+      }
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
   // Compute margins for all counties
   const countyMargins: CountyMargin[] = counties
     .map((county) => ({
@@ -36,8 +52,6 @@ export default function MarginDistribution({
   const axisMin = Math.floor(minMargin - padding);
   const axisMax = Math.ceil(maxMargin + padding);
 
-  // Chart dimensions
-  const chartWidth = 750;
   const chartHeight = 120;
   const plotLeft = 40;
   const plotRight = 20;
@@ -118,6 +132,7 @@ export default function MarginDistribution({
       </div>
 
       <svg
+        ref={svgRef}
         className="margin-plot"
         viewBox={`0 0 ${chartWidth} ${chartHeight}`}
         aria-label={`County margin distribution: ${validMargins.length} counties with reported margins, ${missingMargins.length} without`}
@@ -234,9 +249,9 @@ export default function MarginDistribution({
             />
             <text
               x={selectedCounty.x}
-              y={chartHeight / 2}
+              y={12}
               textAnchor="middle"
-              dominantBaseline="middle"
+              dominantBaseline="hanging"
               className="selection-label"
               fill="#222"
             >
