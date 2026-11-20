@@ -46,15 +46,15 @@ describe("Candidate votes and fusion ballot lines", () => {
   });
   it("preserves every 2026 fusion party line and reconciles the snapshot", () => {
     expect(aggregateVotes(statewide2026.ballotLines)).toEqual({
-      hochul: 3620177,
-      blakeman: 2416676,
-      "write-in": 12721,
+      hochul: 3631374,
+      blakeman: 2414240,
+      "write-in": 12794,
     });
     expect(
       candidateVoteTotal(statewide2026) +
         statewide2026.blank +
         statewide2026.void,
-    ).toBe(6111361);
+    ).toBe(6121434);
   });
 
   it("reconciles every 2026 county party line and ballot category with the independent statewide totals", () => {
@@ -74,14 +74,14 @@ describe("Candidate votes and fusion ballot lines", () => {
         stateLine.votes,
       );
     }
-    expect(combined.blank).toBe(56513);
-    expect(combined.void).toBe(5274);
+    expect(combined.blank).toBe(57647);
+    expect(combined.void).toBe(5379);
     expect(candidateVoteTotal(combined) + combined.blank + combined.void).toBe(
-      6111361,
+      6121434,
     );
     expect(
       counties.reduce((sum, county) => sum + county.districtsReporting, 0),
-    ).toBe(12199);
+    ).toBe(12076);
     expect(
       counties.reduce((sum, county) => sum + county.districtsTotal, 0),
     ).toBe(13187);
@@ -102,9 +102,9 @@ describe("Candidate votes and fusion ballot lines", () => {
   it("preserves the Westchester reporting discrepancy without dropping its votes", () => {
     const county = joinCounty("36119")!;
     expect(aggregateVotes(county.ballotLines)).toEqual({
-      hochul: 225858,
-      blakeman: 116086,
-      "write-in": 442,
+      hochul: 228579,
+      blakeman: 117281,
+      "write-in": 450,
     });
     expect(county.districtsReporting).toBe(0);
     expect(county.districtsTotal).toBe(906);
@@ -121,26 +121,26 @@ describe("Candidate votes and fusion ballot lines", () => {
 });
 describe("Snapshot freshness formatting", () => {
   it("formats the source timestamp in America/New_York", () => {
-    expect(formatSourceTimestamp("2026-11-10T02:10:02.000Z")).toBe(
-      "November 9, 2026 at 9:10:02 PM EST",
+    expect(formatSourceTimestamp("2026-11-19T20:40:36.000Z")).toBe(
+      "November 19, 2026 at 3:40:36 PM EST",
     );
   });
 
   it("formats recent ages and transitions between days", () => {
-    const source = "2026-11-10T02:10:02.000Z";
-    expect(snapshotAgeLabel(source, new Date("2026-11-10T02:10:02.000Z"))).toBe(
+    const source = "2026-11-19T20:40:36.000Z";
+    expect(snapshotAgeLabel(source, new Date("2026-11-19T20:40:36.000Z"))).toBe(
       "Updated just now",
     );
-    expect(snapshotAgeLabel(source, new Date("2026-11-10T02:40:02.000Z"))).toBe(
+    expect(snapshotAgeLabel(source, new Date("2026-11-19T21:10:36.000Z"))).toBe(
       "Updated 30 minutes ago",
     );
-    expect(snapshotAgeLabel(source, new Date("2026-11-10T03:10:02.000Z"))).toBe(
+    expect(snapshotAgeLabel(source, new Date("2026-11-19T21:40:36.000Z"))).toBe(
       "Updated 1 hour ago",
     );
-    expect(snapshotAgeLabel(source, new Date("2026-11-11T02:10:02.000Z"))).toBe(
+    expect(snapshotAgeLabel(source, new Date("2026-11-20T20:40:36.000Z"))).toBe(
       "Updated 1 day ago",
     );
-    expect(snapshotAgeLabel(source, new Date("2026-11-18T02:10:02.000Z"))).toBe(
+    expect(snapshotAgeLabel(source, new Date("2026-11-27T20:40:36.000Z"))).toBe(
       "Updated 8 days ago",
     );
   });

@@ -6,42 +6,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 67572
+        "votes": 68898
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 8599
+        "votes": 8706
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 33391
+        "votes": 33752
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 5170
+        "votes": 5206
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 818
+        "votes": 832
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 426
+        "votes": 432
       }
     ],
-    "blank": 1038,
-    "void": 60,
+    "blank": 1050,
+    "void": 69,
     "districtsReporting": 234,
     "districtsTotal": 234,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36003",
@@ -50,42 +50,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 3777
+        "votes": 3896
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 355
+        "votes": 363
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 10147
+        "votes": 10320
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 980
+        "votes": 998
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 154
+        "votes": 157
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 60
+        "votes": 63
       }
     ],
-    "blank": 251,
-    "void": 25,
+    "blank": 258,
+    "void": 28,
     "districtsReporting": 38,
     "districtsTotal": 38,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36005",
@@ -129,7 +129,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36007",
@@ -173,7 +173,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36009",
@@ -182,42 +182,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 7660
+        "votes": 7853
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 635
+        "votes": 656
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 16002
+        "votes": 16223
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 1902
+        "votes": 1934
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 262
+        "votes": 270
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 59
+        "votes": 39
       }
     ],
-    "blank": 260,
-    "void": 7,
+    "blank": 287,
+    "void": 6,
     "districtsReporting": 55,
     "districtsTotal": 55,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36011",
@@ -261,7 +261,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36013",
@@ -270,42 +270,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 14922
+        "votes": 15302
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 1356
+        "votes": 1406
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 22731
+        "votes": 23095
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 3245
+        "votes": 3295
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 379
+        "votes": 386
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 107
+        "votes": 113
       }
     ],
-    "blank": 506,
-    "void": 35,
-    "districtsReporting": 91,
+    "blank": 526,
+    "void": 37,
+    "districtsReporting": 0,
     "districtsTotal": 91,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36015",
@@ -349,7 +349,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36017",
@@ -393,7 +393,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36019",
@@ -402,27 +402,27 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 12202
+        "votes": 12209
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 939
+        "votes": 941
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 14050
+        "votes": 14052
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 1252
+        "votes": 1253
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 495
+        "votes": 496
       },
       {
         "candidate": "write-in",
@@ -430,14 +430,14 @@
         "votes": 41
       }
     ],
-    "blank": 389,
+    "blank": 474,
     "void": 24,
     "districtsReporting": 51,
     "districtsTotal": 51,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36021",
@@ -446,27 +446,27 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 14937
+        "votes": 15120
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 2293
+        "votes": 2322
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 9903
+        "votes": 9956
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 1443
+        "votes": 1451
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 260
+        "votes": 263
       },
       {
         "candidate": "write-in",
@@ -481,7 +481,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36023",
@@ -525,7 +525,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36025",
@@ -569,7 +569,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36027",
@@ -613,7 +613,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36029",
@@ -622,42 +622,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 176307
+        "votes": 180051
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 17448
+        "votes": 17771
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 126236
+        "votes": 127868
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 25694
+        "votes": 26006
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 2809
+        "votes": 2862
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 1215
+        "votes": 1241
       }
     ],
-    "blank": 2868,
-    "void": 168,
+    "blank": 3024,
+    "void": 189,
     "districtsReporting": 652,
     "districtsTotal": 652,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36031",
@@ -701,7 +701,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36033",
@@ -710,42 +710,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 6113
+        "votes": 6379
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 414
+        "votes": 441
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 7998
+        "votes": 8159
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 692
+        "votes": 705
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 221
+        "votes": 231
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 33
+        "votes": 38
       }
     ],
-    "blank": 182,
+    "blank": 192,
     "void": 12,
     "districtsReporting": 29,
     "districtsTotal": 29,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36035",
@@ -754,42 +754,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 5795
+        "votes": 105
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 380
+        "votes": 8
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 11179
+        "votes": 107
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 829
+        "votes": 13
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 165
+        "votes": 0
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 31
+        "votes": 0
       }
     ],
-    "blank": 273,
-    "void": 24,
-    "districtsReporting": 32,
+    "blank": 4,
+    "void": 1,
+    "districtsReporting": 0,
     "districtsTotal": 32,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36037",
@@ -833,7 +833,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36039",
@@ -877,7 +877,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36041",
@@ -886,17 +886,17 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 886
+        "votes": 895
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 64
+        "votes": 66
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 1738
+        "votes": 1752
       },
       {
         "candidate": "blakeman",
@@ -906,7 +906,7 @@
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 22
+        "votes": 23
       },
       {
         "candidate": "write-in",
@@ -914,14 +914,14 @@
         "votes": 0
       }
     ],
-    "blank": 55,
+    "blank": 56,
     "void": 2,
     "districtsReporting": 11,
     "districtsTotal": 11,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36043",
@@ -965,7 +965,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36045",
@@ -1009,7 +1009,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36047",
@@ -1053,7 +1053,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36049",
@@ -1097,7 +1097,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36051",
@@ -1141,7 +1141,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36053",
@@ -1150,42 +1150,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 10109
+        "votes": 10401
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 985
+        "votes": 1029
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 13407
+        "votes": 13647
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 1637
+        "votes": 1664
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 320
+        "votes": 325
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 68
+        "votes": 70
       }
     ],
-    "blank": 166,
-    "void": 18,
+    "blank": 170,
+    "void": 20,
     "districtsReporting": 53,
     "districtsTotal": 53,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36055",
@@ -1229,7 +1229,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36057",
@@ -1273,7 +1273,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36059",
@@ -1317,7 +1317,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36061",
@@ -1361,7 +1361,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36063",
@@ -1405,7 +1405,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36065",
@@ -1414,42 +1414,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 26707
+        "votes": 26971
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 2427
+        "votes": 2458
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 42991
+        "votes": 43250
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 4266
+        "votes": 4295
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 848
+        "votes": 856
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 180
+        "votes": 186
       }
     ],
-    "blank": 0,
-    "void": 0,
+    "blank": 700,
+    "void": 55,
     "districtsReporting": 193,
     "districtsTotal": 193,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36067",
@@ -1458,42 +1458,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 94112
+        "votes": 95359
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 8862
+        "votes": 9007
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 58895
+        "votes": 59403
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 8692
+        "votes": 8758
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 1565
+        "votes": 1585
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 484
+        "votes": 492
       }
     ],
-    "blank": 1154,
-    "void": 83,
+    "blank": 1171,
+    "void": 86,
     "districtsReporting": 449,
     "districtsTotal": 449,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36069",
@@ -1502,42 +1502,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 21731
+        "votes": 22202
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 1599
+        "votes": 1629
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 20225
+        "votes": 20481
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 2939
+        "votes": 2983
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 426
+        "votes": 440
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 99
+        "votes": 104
       }
     ],
-    "blank": 317,
-    "void": 23,
+    "blank": 327,
+    "void": 24,
     "districtsReporting": 92,
     "districtsTotal": 92,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36071",
@@ -1581,7 +1581,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36073",
@@ -1590,42 +1590,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 3568
+        "votes": 3630
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 304
+        "votes": 309
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 8613
+        "votes": 8707
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 939
+        "votes": 951
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 127
+        "votes": 128
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 31
+        "votes": 34
       }
     ],
-    "blank": 169,
+    "blank": 128,
     "void": 6,
     "districtsReporting": 40,
     "districtsTotal": 40,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36075",
@@ -1669,7 +1669,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36077",
@@ -1713,7 +1713,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36079",
@@ -1757,7 +1757,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36081",
@@ -1801,7 +1801,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36083",
@@ -1810,42 +1810,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 28432
+        "votes": 28958
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 4145
+        "votes": 4224
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 24382
+        "votes": 24619
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 4347
+        "votes": 4387
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 581
+        "votes": 590
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 222
+        "votes": 225
       }
     ],
-    "blank": 595,
-    "void": 36,
+    "blank": 609,
+    "void": 38,
     "districtsReporting": 117,
     "districtsTotal": 117,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36085",
@@ -1889,7 +1889,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36087",
@@ -1898,42 +1898,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 60298
+        "votes": 62128
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 3664
+        "votes": 3808
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 50517
+        "votes": 51767
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 4578
+        "votes": 4717
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 631
+        "votes": 655
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 161
+        "votes": 170
       }
     ],
-    "blank": 3972,
-    "void": 148,
+    "blank": 4169,
+    "void": 162,
     "districtsReporting": 307,
     "districtsTotal": 307,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36091",
@@ -1942,42 +1942,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 48656
+        "votes": 49668
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 3885
+        "votes": 3945
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 41354
+        "votes": 41779
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 5552
+        "votes": 5631
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 842
+        "votes": 847
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 254
+        "votes": 262
       }
     ],
-    "blank": 1165,
-    "void": 50,
+    "blank": 1186,
+    "void": 52,
     "districtsReporting": 204,
     "districtsTotal": 204,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36093",
@@ -1986,42 +1986,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 28889
+        "votes": 29446
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 2910
+        "votes": 2965
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 18347
+        "votes": 18549
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 3552
+        "votes": 3586
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 504
+        "votes": 514
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 163
+        "votes": 167
       }
     ],
-    "blank": 520,
-    "void": 48,
+    "blank": 611,
+    "void": 51,
     "districtsReporting": 102,
     "districtsTotal": 102,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36095",
@@ -2065,7 +2065,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36097",
@@ -2109,7 +2109,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36099",
@@ -2153,7 +2153,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36089",
@@ -2162,42 +2162,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 12283
+        "votes": 12577
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 871
+        "votes": 897
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 19388
+        "votes": 19639
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 1782
+        "votes": 1811
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 556
+        "votes": 563
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 64
+        "votes": 67
       }
     ],
-    "blank": 466,
+    "blank": 475,
     "void": 19,
     "districtsReporting": 70,
     "districtsTotal": 70,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36101",
@@ -2241,7 +2241,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36103",
@@ -2285,7 +2285,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36105",
@@ -2329,7 +2329,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36107",
@@ -2373,7 +2373,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36109",
@@ -2417,7 +2417,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36111",
@@ -2461,7 +2461,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36113",
@@ -2470,42 +2470,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 13155
+        "votes": 13468
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 895
+        "votes": 913
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 12825
+        "votes": 13055
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 1401
+        "votes": 1423
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 327
+        "votes": 331
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 65
+        "votes": 69
       }
     ],
-    "blank": 312,
-    "void": 19,
+    "blank": 293,
+    "void": 12,
     "districtsReporting": 40,
     "districtsTotal": 40,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36115",
@@ -2514,27 +2514,27 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 8249
+        "votes": 8406
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 652
+        "votes": 670
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 12105
+        "votes": 12293
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 1288
+        "votes": 1304
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 274
+        "votes": 277
       },
       {
         "candidate": "write-in",
@@ -2542,14 +2542,14 @@
         "votes": 52
       }
     ],
-    "blank": 203,
-    "void": 29,
+    "blank": 212,
+    "void": 31,
     "districtsReporting": 50,
     "districtsTotal": 50,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36117",
@@ -2593,7 +2593,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36119",
@@ -2602,42 +2602,42 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 210672
+        "votes": 213192
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 15186
+        "votes": 15387
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 106129
+        "votes": 107235
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 8136
+        "votes": 8199
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 1821
+        "votes": 1847
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 442
+        "votes": 450
       }
     ],
-    "blank": 3210,
-    "void": 532,
+    "blank": 3274,
+    "void": 549,
     "districtsReporting": 0,
     "districtsTotal": 906,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36121",
@@ -2681,7 +2681,7 @@
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   },
   {
     "fips": "36123",
@@ -2690,41 +2690,41 @@
       {
         "candidate": "hochul",
         "party": "DEM",
-        "votes": 3129
+        "votes": 3186
       },
       {
         "candidate": "hochul",
         "party": "WOR",
-        "votes": 216
+        "votes": 221
       },
       {
         "candidate": "blakeman",
         "party": "REP",
-        "votes": 4316
+        "votes": 4395
       },
       {
         "candidate": "blakeman",
         "party": "CON",
-        "votes": 464
+        "votes": 468
       },
       {
         "candidate": "blakeman",
         "party": "Vote Affordable",
-        "votes": 71
+        "votes": 72
       },
       {
         "candidate": "write-in",
         "party": "",
-        "votes": 0
+        "votes": 15
       }
     ],
-    "blank": 65,
+    "blank": 74,
     "void": 5,
     "districtsReporting": 20,
     "districtsTotal": 20,
     "sourcePartial": false,
     "status": "unofficial",
     "year": 2026,
-    "updatedISO": "2026-11-10T02:10:02.000Z"
+    "updatedISO": "2026-11-19T20:40:36.000Z"
   }
 ]

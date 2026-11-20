@@ -33,7 +33,7 @@ test("2026 snapshot is honest, and the app makes no external runtime requests", 
     }
   });
   await page.goto("/");
-  await expect(page.getByText("3,620,177 votes")).toBeVisible();
+  await expect(page.getByText("3,631,374 votes")).toBeVisible();
   await expect(
     page.getByText("2026 results are unofficial and incomplete."),
   ).toBeVisible();
@@ -51,7 +51,7 @@ test("2026 snapshot is honest, and the app makes no external runtime requests", 
   ).toBeVisible();
   await page.getByLabel("Jump to a county").selectOption("36119");
   await expect(page.getByText("0 of 906 districts reporting")).toBeVisible();
-  await expect(page.getByText("225,858 votes")).toBeVisible();
+  await expect(page.getByText("228,579 votes")).toBeVisible();
   await expect(
     page.getByText(/The source reports votes alongside 0 districts/),
   ).toBeVisible();
@@ -93,7 +93,7 @@ test("vote circles, contributions, and historical comparison share selection", a
         Math.hypot(transform.a, transform.b)
       );
     });
-  expect((mapDiameter / legendDiameter) ** 2).toBeCloseTo(115976 / 500000, 3);
+  expect((mapDiameter / legendDiameter) ** 2).toBeCloseTo(117826 / 500000, 3);
   await page.getByRole("button", { name: /^Albany County,/ }).click();
   await expect(page.getByLabel("Jump to a county")).toHaveValue("36001");
   await page
@@ -113,7 +113,7 @@ test("vote circles, contributions, and historical comparison share selection", a
   await expect(
     page
       .getByLabel("Selected county historical comparison")
-      .getByText("+15,302"),
+      .getByText("+16,324"),
   ).toBeVisible();
   await expect(
     page.getByText("Certified 2022 vs. incomplete 2026."),

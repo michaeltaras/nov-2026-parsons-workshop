@@ -19,7 +19,7 @@ describe("County contributions to the statewide difference", () => {
   it("adds all 62 county net votes to the independent statewide difference", () => {
     const summary = summarizeContributions(counties);
     expect(summary.missingCount).toBe(0);
-    expect(summary.towardHochul - summary.towardBlakeman).toBe(1203501);
+    expect(summary.towardHochul - summary.towardBlakeman).toBe(1217134);
     expect(summary.net).toBe(netVotes(statewide2026));
     expect(netVotes(counties.find((county) => county.name === "Kings")!)).toBe(
       366835,
@@ -66,16 +66,16 @@ describe("Same-office historical comparison", () => {
     const albany = counties.find((county) => county.name === "Albany")!;
     const comparison = compareCounty(albany)!;
     expect(comparison.net2022).toBe(21490);
-    expect(comparison.net2026).toBe(36792);
-    expect(comparison.netChange).toBe(15302);
+    expect(comparison.net2026).toBe(37814);
+    expect(comparison.netChange).toBe(16324);
     expect(comparison.margin2022).toBeCloseTo((21490 / 116965) * 100);
-    expect(comparison.margin2026).toBeCloseTo((36792 / 115976) * 100);
+    expect(comparison.margin2026).toBeCloseTo((37814 / 117826) * 100);
     expect(comparison.marginChange).toBeCloseTo(
-      (36792 / 115976) * 100 - (21490 / 116965) * 100,
+      (37814 / 117826) * 100 - (21490 / 116965) * 100,
     );
     expect(comparison.votes2022).toBe(116965);
-    expect(comparison.votes2026).toBe(115976);
-    expect(comparison.voteChange).toBe(-989);
+    expect(comparison.votes2026).toBe(117826);
+    expect(comparison.voteChange).toBe(861);
   });
   it("leaves missing baselines and missing named candidates unavailable", () => {
     expect(compareCounty({ ...counties[0], fips: "99999" })).toBeNull();
@@ -89,7 +89,7 @@ describe("Vote-circle statistical encoding", () => {
     expect(voteCircleRadius(500000)).toBe(34);
     expect(voteCircleRadius(500000) / voteCircleRadius(125000)).toBeCloseTo(2);
     const albany = counties.find((county) => county.name === "Albany")!;
-    expect(candidateVoteTotal(albany)).toBe(115976);
+    expect(candidateVoteTotal(albany)).toBe(117826);
   });
   it("separates overlapping symbols deterministically without changing their vote areas", () => {
     const anchors = [

@@ -3,41 +3,41 @@
     {
       "candidate": "hochul",
       "party": "DEM",
-      "votes": 3247323
+      "votes": 3257462
     },
     {
       "candidate": "hochul",
       "party": "WOR",
-      "votes": 372854
+      "votes": 373912
     },
     {
       "candidate": "blakeman",
       "party": "REP",
-      "votes": 2141711
+      "votes": 2138945
     },
     {
       "candidate": "blakeman",
       "party": "CON",
-      "votes": 234340
+      "votes": 234598
     },
     {
       "candidate": "blakeman",
       "party": "Vote Affordable",
-      "votes": 40625
+      "votes": 40697
     },
     {
       "candidate": "write-in",
       "party": "",
-      "votes": 12721
+      "votes": 12794
     }
   ],
-  "blank": 56513,
-  "void": 5274,
-  "districtsReporting": 12199,
+  "blank": 57647,
+  "void": 5379,
+  "districtsReporting": 12076,
   "districtsTotal": 13187,
   "sourcePartial": false,
   "status": "unofficial",
   "year": 2026,
-  "updatedISO": "2026-11-10T02:10:02.000Z",
-  "timestamp": "November 9, 2026 \u00b7 9:10 p.m. ET"
+  "updatedISO": "2026-11-19T20:40:36.000Z",
+  "timestamp": "November 19, 2026 \u00b7 3:40 p.m. ET"
 }

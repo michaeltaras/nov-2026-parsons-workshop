@@ -1,83 +1,83 @@
 {
-  "updatedISO": "2026-11-10T02:10:02.000Z",
-  "feedReceivedAt": "2026-11-10T03:00:47.117Z",
+  "updatedISO": "2026-11-19T20:40:36.000Z",
+  "feedReceivedAt": "2026-11-20T02:00:30.867Z",
   "counties": 62,
   "checks": [
     {
       "metric": "hochul:DEM",
-      "countySum": 3247323,
-      "feedStatewide": 3247323,
-      "officialStatewide": 3247323,
+      "countySum": 3257462,
+      "feedStatewide": 3257462,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "hochul:WOR",
-      "countySum": 372854,
-      "feedStatewide": 372854,
-      "officialStatewide": 372854,
+      "countySum": 373912,
+      "feedStatewide": 373912,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "blakeman:REP",
-      "countySum": 2141711,
-      "feedStatewide": 2141711,
-      "officialStatewide": 2141711,
+      "countySum": 2138945,
+      "feedStatewide": 2138945,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "blakeman:CON",
-      "countySum": 234340,
-      "feedStatewide": 234340,
-      "officialStatewide": 234340,
+      "countySum": 234598,
+      "feedStatewide": 234598,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "blakeman:Vote Affordable",
-      "countySum": 40625,
-      "feedStatewide": 40625,
-      "officialStatewide": 40625,
+      "countySum": 40697,
+      "feedStatewide": 40697,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "write-in:",
-      "countySum": 12721,
-      "feedStatewide": 12721,
-      "officialStatewide": 12721,
+      "countySum": 12794,
+      "feedStatewide": 12794,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "blank",
-      "countySum": 56513,
-      "feedStatewide": 56513,
-      "officialStatewide": 56513,
+      "countySum": 57647,
+      "feedStatewide": 57647,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "void",
-      "countySum": 5274,
-      "feedStatewide": 5274,
-      "officialStatewide": 5274,
+      "countySum": 5379,
+      "feedStatewide": 5379,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "districtsReporting",
-      "countySum": 12199,
-      "feedStatewide": 12199,
-      "officialStatewide": 12199,
+      "countySum": 12076,
+      "feedStatewide": 12076,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "districtsTotal",
       "countySum": 13187,
       "feedStatewide": 13187,
-      "officialStatewide": 13187,
+      "officialStatewide": null,
       "difference": 0
     },
     {
       "metric": "ballots",
-      "countySum": 6111361,
-      "feedStatewide": 6111361,
-      "officialStatewide": 6111361,
+      "countySum": 6121434,
+      "feedStatewide": 6121434,
+      "officialStatewide": null,
       "difference": 0
     }
   ]
