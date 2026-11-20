@@ -38,6 +38,15 @@ test("2026 snapshot is honest, and the app makes no external runtime requests", 
     page.getByText("2026 results are unofficial and incomplete."),
   ).toBeVisible();
   await expect(
+    page.getByText(/Results snapshot: last updated by the source on.*EST/),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/This app shows a saved snapshot and does not update live/),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Check the source for newer results" }),
+  ).toHaveAttribute("href", "https://nyenr.elections.ny.gov/HomeNoJS.aspx");
+  await expect(
     page.getByLabel(/Interactive map.*unofficial 2026/),
   ).toBeVisible();
   await page.getByLabel("Jump to a county").selectOption("36119");
