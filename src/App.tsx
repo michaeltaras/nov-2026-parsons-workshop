@@ -6,9 +6,12 @@ import StatewideResults from "./features/StatewideResults";
 import Comparisons from "./features/Comparisons";
 import MarginContributions from "./features/MarginContributions";
 import HistoricalChanges from "./features/HistoricalChanges";
+import { formatSourceTimestamp, snapshotAgeLabel } from "./utils/formatNumbers";
 export default function App() {
   const [selected, setSelected] = useState("36061");
   const county = counties.find((item) => item.fips === selected)!;
+  const sourceUpdate = formatSourceTimestamp(statewide2026.updatedISO);
+  const snapshotAge = snapshotAgeLabel(statewide2026.updatedISO);
   return (
     <>
       <a className="skip-link" href="#explore">
@@ -43,10 +46,21 @@ export default function App() {
         </section>
         <div className="data-notice">
           <p>
-            <strong>2026 results are unofficial and incomplete.</strong> Data as
-            of: {statewide2026.timestamp}. This page does not update live. All
-            62 counties are included; district reporting is not the percentage
-            of votes counted.
+            <strong>2026 results are unofficial and incomplete.</strong> Results
+            snapshot:{" "}
+            {sourceUpdate
+              ? `last updated by the source on ${sourceUpdate}`
+              : "source update time unavailable"}
+            .
+            {snapshotAge !== "snapshot update time unavailable"
+              ? ` ${snapshotAge}.`
+              : ""}{" "}
+            This app shows a saved snapshot and does not update live.{" "}
+            <a href="https://nyenr.elections.ny.gov/HomeNoJS.aspx">
+              Check the source for newer results
+            </a>
+            . All 62 counties are included; district reporting is not the
+            percentage of votes counted.
           </p>
         </div>
         <StatewideResults year={2026} result={statewide2026} />

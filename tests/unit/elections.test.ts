@@ -11,7 +11,13 @@ import {
   combineResults,
   statewide2026,
 } from "../../src/data/elections";
-import { votes, percent, marginLabel } from "../../src/utils/formatNumbers";
+import {
+  votes,
+  percent,
+  marginLabel,
+  formatSourceTimestamp,
+  snapshotAgeLabel,
+} from "../../src/utils/formatNumbers";
 import { electionColor, colors, missing } from "../../src/utils/electionColors";
 const statewide2022 = combineResults(historicalCounties);
 
@@ -113,6 +119,46 @@ describe("Candidate votes and fusion ballot lines", () => {
     }
   });
 });
+describe("Snapshot freshness formatting", () => {
+  it("formats the source timestamp in America/New_York", () => {
+    expect(formatSourceTimestamp("2026-11-10T02:10:02.000Z")).toBe(
+      "November 9, 2026 at 9:10:02 PM EST",
+    );
+  });
+
+  it("formats recent ages and transitions between days", () => {
+    const source = "2026-11-10T02:10:02.000Z";
+    expect(snapshotAgeLabel(source, new Date("2026-11-10T02:10:02.000Z"))).toBe(
+      "Updated just now",
+    );
+    expect(snapshotAgeLabel(source, new Date("2026-11-10T02:40:02.000Z"))).toBe(
+      "Updated 30 minutes ago",
+    );
+    expect(snapshotAgeLabel(source, new Date("2026-11-10T03:10:02.000Z"))).toBe(
+      "Updated 1 hour ago",
+    );
+    expect(snapshotAgeLabel(source, new Date("2026-11-11T02:10:02.000Z"))).toBe(
+      "Updated 1 day ago",
+    );
+    expect(snapshotAgeLabel(source, new Date("2026-11-18T02:10:02.000Z"))).toBe(
+      "Updated 8 days ago",
+    );
+  });
+
+  it("does not produce negative or invalid ages", () => {
+    expect(
+      snapshotAgeLabel(
+        "2026-11-10T02:10:02.000Z",
+        new Date("2026-11-09T02:10:02.000Z"),
+      ),
+    ).toBe("Updated just now");
+    expect(snapshotAgeLabel("not-a-date", new Date())).toBe(
+      "snapshot update time unavailable",
+    );
+    expect(formatSourceTimestamp("not-a-date")).toBeNull();
+  });
+});
+
 describe("Honest denominators and missing data", () => {
   const example = {
     ballotLines: [
