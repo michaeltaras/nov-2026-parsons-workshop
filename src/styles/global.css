@@ -150,6 +150,9 @@ h1 {
 .data-notice strong {
   color: #111;
 }
+.data-notice a {
+  font-weight: 700;
+}
 .fine-print {
   font-size: 11px;
   line-height: 1.7;
