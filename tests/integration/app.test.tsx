@@ -14,7 +14,7 @@ describe("Shared product behavior", () => {
     expect(
       within(details).getByRole("heading", { name: "Albany County", level: 2 }),
     ).toBeInTheDocument();
-    expect(within(details).getByText("76,171 votes")).toBeInTheDocument();
+    expect(within(details).getByText("77,604 votes")).toBeInTheDocument();
     expect(within(details).getByText("Bruce Blakeman")).toBeInTheDocument();
     expect(screen.getByLabelText("Jump to a county")).toHaveValue("36001");
     expect(
@@ -54,11 +54,11 @@ describe("Shared product behavior", () => {
         "Bruce Blakeman",
       ),
     ).toBeInTheDocument();
-    expect(screen.getByText("3,620,177 votes")).toBeInTheDocument();
+    expect(screen.getByText("3,631,374 votes")).toBeInTheDocument();
     expect(
       screen.getByLabelText(/Interactive map.*unofficial 2026/),
     ).toBeInTheDocument();
-    expect(screen.getByText(/12,199 of 13,187/)).toBeInTheDocument();
+    expect(screen.getByText(/12,076 of 13,187/)).toBeInTheDocument();
     expect(screen.getByText(/does not update live/)).toBeInTheDocument();
     expect(
       within(screen.getByLabelText("2026 statewide results")).queryByText(
@@ -77,7 +77,7 @@ describe("Shared product behavior", () => {
     expect(
       within(details).getByText(/unscanned emergency ballots/),
     ).toBeInTheDocument();
-    expect(within(details).getByText("225,858 votes")).toBeInTheDocument();
+    expect(within(details).getByText("228,579 votes")).toBeInTheDocument();
   });
   it("ranks current reported margins and links ranking selection to every view", () => {
     render(<App />);
@@ -85,20 +85,20 @@ describe("Shared product behavior", () => {
       .getAllByRole("button")
       .filter((button) => button.classList.contains("rank-row"));
     expect(rows.map((row) => row.textContent)).toEqual([
-      expect.stringContaining("Broome"),
       expect.stringContaining("Ontario"),
+      expect.stringContaining("Broome"),
       expect.stringContaining("Suffolk"),
       expect.stringContaining("Nassau"),
       expect.stringContaining("Warren"),
-      expect.stringContaining("Putnam"),
+      expect.stringContaining("Fulton"),
     ]);
     fireEvent.click(rows[0]);
-    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36007");
+    expect(screen.getByLabelText("Jump to a county")).toHaveValue("36069");
     expect(
-      screen.getByRole("button", { name: /^Broome County,/ }),
+      screen.getByRole("button", { name: /^Ontario County,/ }),
     ).toHaveAttribute("aria-pressed", "true");
     expect(
-      screen.getByRole("heading", { name: "Broome County", level: 2 }),
+      screen.getByRole("heading", { name: "Ontario County", level: 2 }),
     ).toBeInTheDocument();
   });
 });
@@ -114,7 +114,7 @@ describe("Connected editorial analysis", () => {
     expect(map.querySelectorAll(".vote-circle")).toHaveLength(62);
     expect(
       screen.getByRole("button", {
-        name: /^Albany County,.*115,976 candidate votes/,
+        name: /^Albany County,.*117,826 candidate votes/,
       }),
     ).toHaveAttribute("aria-pressed", "true");
     expect(
@@ -160,10 +160,10 @@ describe("Connected editorial analysis", () => {
     ).toHaveAttribute("aria-pressed", "true");
     expect(
       within(screen.getByLabelText("Selected county contribution")).getByText(
-        "+36,792",
+        "+37,814",
       ),
     ).toBeInTheDocument();
-    expect(within(history).getByText("+15,302")).toBeInTheDocument();
+    expect(within(history).getByText("+16,324")).toBeInTheDocument();
     expect(
       screen.getByText(/Certified 2022 vs. incomplete 2026/),
     ).toBeInTheDocument();
@@ -190,7 +190,7 @@ describe("Connected editorial analysis", () => {
     expect(within(list).getAllByRole("button")).toHaveLength(62);
     expect(
       within(screen.getByLabelText("Statewide net-vote arithmetic")).getByText(
-        "+1,203,501",
+        "+1,217,134",
       ),
     ).toBeInTheDocument();
   });
