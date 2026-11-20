@@ -115,3 +115,55 @@ test("vote circles, contributions, and historical comparison share selection", a
     ),
   ).toBeTruthy();
 });
+
+test("NYC close-up selects counties, stays in sync, and fits the viewport", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: /NYC close-up/ }).click();
+  const inset = page.getByRole("toolbar", { name: "New York City, enlarged" });
+  await expect(inset.getByRole("button")).toHaveCount(5);
+  await inset
+    .getByRole("button", { name: /^Brooklyn \(Kings County\),/ })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Kings County", level: 2 }),
+  ).toBeVisible();
+  await expect(page.getByLabel("Jump to a county")).toHaveValue("36047");
+  await expect(
+    page.getByRole("button", { name: /^Kings County,/ }),
+  ).toHaveAttribute("aria-pressed", "true");
+  // Keyboard: arrows move north through the boroughs, Enter selects, and one
+  // Tab leaves the close-up.
+  await page.keyboard.press("ArrowUp");
+  await page.keyboard.press("ArrowUp");
+  await expect(
+    inset.getByRole("button", { name: /^Manhattan \(New York County\),/ }),
+  ).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("heading", { name: "New York County", level: 2 }),
+  ).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(page.getByLabel("Jump to a county")).toBeFocused();
+  // The main map's selection is reflected in the close-up.
+  await page.getByLabel("Jump to a county").selectOption("36085");
+  await expect(
+    inset.getByRole("button", { name: /^Staten Island \(Richmond County\),/ }),
+  ).toHaveAttribute("aria-pressed", "true");
+  // The close-up fits the screen width and sits above, not over, the legend.
+  const insetBox = (await inset.boundingBox())!;
+  const legendBox = (await page
+    .getByLabel("County margin color scale")
+    .boundingBox())!;
+  expect(insetBox.x).toBeGreaterThanOrEqual(0);
+  expect(insetBox.x + insetBox.width).toBeLessThanOrEqual(
+    page.viewportSize()!.width,
+  );
+  expect(insetBox.y + insetBox.height).toBeLessThanOrEqual(legendBox.y);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBeTruthy();
+});

@@ -1467,3 +1467,52 @@ footer > a:last-child {
     flex-basis: 100%;
   }
 }
+
+/* NYC close-up: an enlarged view of the five NYC counties in County map mode. */
+.nyc-inset-control {
+  margin-top: 12px;
+}
+.nyc-inset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 18px 27px;
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.nyc-inset-text {
+  flex: 1 1 220px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #555;
+}
+.nyc-inset-text h3 {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 6px;
+}
+.nyc-inset-text p + p {
+  margin-top: 8px;
+}
+.nyc-inset-key {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+}
+.nyc-inset-key strong {
+  color: #222;
+}
+.nyc-inset-map {
+  flex: 1 1 280px;
+  max-width: 400px;
+}
+.nyc-inset-labels {
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+  fill: #222;
+  paint-order: stroke;
+  stroke: #fff;
+  stroke-width: 3px;
+}

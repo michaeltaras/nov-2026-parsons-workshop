@@ -13,6 +13,7 @@ import { electionColor } from "../utils/electionColors";
 import { marginLabel, votes } from "../utils/formatNumbers";
 import Legend from "../components/Legend";
 import { createVoteCircleLayout, voteCircleRadius } from "./voteCircleLayout";
+import NycInset from "./NycInset";
 
 export default function ElectionMap({
   selected,
@@ -24,6 +25,7 @@ export default function ElectionMap({
   const [hovered, setHovered] = useState<string | null>(null);
   const [labels, setLabels] = useState(false);
   const [mode, setMode] = useState<"land" | "votes">("land");
+  const [insetOpen, setInsetOpen] = useState(false);
   const path = useMemo(
     () =>
       geoPath(
@@ -198,6 +200,25 @@ export default function ElectionMap({
           N ↑<span>Hover to explore · click to select</span>
         </div>
       </div>
+      {mode === "land" && (
+        <div className="nyc-inset-control">
+          <button
+            className={insetOpen ? "toggle active" : "toggle"}
+            aria-expanded={insetOpen}
+            aria-controls="nyc-inset"
+            onClick={() => setInsetOpen(!insetOpen)}
+          >
+            NYC close-up <span aria-hidden="true">{insetOpen ? "▴" : "▾"}</span>
+          </button>
+          {insetOpen && (
+            <NycInset
+              selected={selected}
+              onSelect={onSelect}
+              onHover={setHovered}
+            />
+          )}
+        </div>
+      )}
       {mode === "votes" && (
         <div
           className="circle-size-legend"
